@@ -10,6 +10,8 @@ const xdialogport = require("./xdialogport/xdialogport.js");
 const xdialogcurrent = require("./xdialogport/xdialogcurrent.js");
 const xform = require("./xform/xform.js");
 const xformcheckbox = require("./xformcheckbox/xformcheckbox.js");
+const xformcheckboxes = require("./xformcheckboxes/xformcheckboxes.js");
+const xformcombobox = require("./xformcombobox/xformcombobox.js");
 const xformfield = require("./xformfield/xformfield.js");
 const xformtextarea = require("./xformtextarea/xformtextarea.js");
 const xformselect = require("./xformselect/xformselect.js");
@@ -46,7 +48,7 @@ Object.assign(window.xcomponents_api, {
 window.xcomponents_api.default = window.xcomponents_api;
 
 module.exports = window.xcomponents_api;
-},{"./xbreadcrumb/xbreadcrumb.js":2,"./xbutton/xbutton.js":3,"./xcollapser/xcollapser.js":4,"./xcollapsible/xcollapsible.js":5,"./xdialogport/xdialogcurrent.js":6,"./xdialogport/xdialogport.js":7,"./xform/xform.js":8,"./xformcheckbox/xformcheckbox.js":9,"./xformfield/xformfield.js":10,"./xformselect/xformselect.js":11,"./xformtextarea/xformtextarea.js":12,"./xjumbotron/xjumbotron.js":13,"./xlabel/xlabel.js":14,"./xlayout/xlayout.js":15,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":16,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":17,"./xlink/xlink.js":18,"./xpage/xpage.js":19,"./xpanel/xpanel.js":20,"./xparagraph/xparagraph.js":21,"./xstatic/xstatic.js":22,"./xsubtitle/xsubtitle.js":23,"./xtable/xtable.js":24,"./xtablebody/xtablebody.js":25,"./xtablecell/xtablecell.js":26,"./xtablehead/xtablehead.js":27,"./xtableheader/xtableheader.js":28,"./xtablerow/xtablerow.js":29,"./xtester/xtester.js":30,"./xtitle/xtitle.js":31,"./xtooltip/xtooltip.js":32,"./xwindow/xwindow.js":33,"./xwindowbody/xwindowbody.js":34,"./xwindowfooter/xwindowfooter.js":35,"./xwindowfooteritem/xwindowfooteritem.js":36,"./xwindowtitle/xwindowtitle.js":37}],2:[function(require,module,exports){
+},{"./xbreadcrumb/xbreadcrumb.js":2,"./xbutton/xbutton.js":3,"./xcollapser/xcollapser.js":4,"./xcollapsible/xcollapsible.js":5,"./xdialogport/xdialogcurrent.js":6,"./xdialogport/xdialogport.js":7,"./xform/xform.js":8,"./xformcheckbox/xformcheckbox.js":9,"./xformcheckboxes/xformcheckboxes.js":10,"./xformcombobox/xformcombobox.js":11,"./xformfield/xformfield.js":12,"./xformselect/xformselect.js":13,"./xformtextarea/xformtextarea.js":14,"./xjumbotron/xjumbotron.js":15,"./xlabel/xlabel.js":16,"./xlayout/xlayout.js":17,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":18,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":19,"./xlink/xlink.js":20,"./xpage/xpage.js":21,"./xpanel/xpanel.js":22,"./xparagraph/xparagraph.js":23,"./xstatic/xstatic.js":24,"./xsubtitle/xsubtitle.js":25,"./xtable/xtable.js":26,"./xtablebody/xtablebody.js":27,"./xtablecell/xtablecell.js":28,"./xtablehead/xtablehead.js":29,"./xtableheader/xtableheader.js":30,"./xtablerow/xtablerow.js":31,"./xtester/xtester.js":32,"./xtitle/xtitle.js":33,"./xtooltip/xtooltip.js":34,"./xwindow/xwindow.js":35,"./xwindowbody/xwindowbody.js":36,"./xwindowfooter/xwindowfooter.js":37,"./xwindowfooteritem/xwindowfooteritem.js":38,"./xwindowtitle/xwindowtitle.js":39}],2:[function(require,module,exports){
 
 xcomponents_components.xbreadcrumb = Castelog.metodos.un_componente_vue2("xbreadcrumb",
   "<div class=\"Component xbreadcrumb\">"
@@ -1067,6 +1069,227 @@ deactivated() {
   null);
 },{}],10:[function(require,module,exports){
 
+xcomponents_components.xformcheckboxes = Castelog.metodos.un_componente_vue2("xformcheckboxes",
+  "<div class=\"Component xformcheckboxes\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div>"
+ + "        <div v-for=\"option, option_index in options\" v-bind:key=\"'xformcheckboxes-' + customId + '-option-' + option_index\">"
+ + "          <div v-on:click=\"() => select_value(option)\">"
+ + "            <input class=\"checkbox_input\" type=\"checkbox\" :checked=\"value.indexOf(option) !== -1\" />"
+ + "            <label>{{ option }}</label>"
+ + "          </div>"
+ + "        </div>"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ customId:{ type:String,
+default:function() {try {
+return Castelog.metodos.un_texto_aleatorio(10, undefined);
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+initialValue:{ type:Array,
+default:function() {try {
+return [  ];
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+options:{ type:Array,
+default:function() {try {
+return [ "Yes",
+"No",
+"Maybe" ];
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ select_value( option ) {try {
+const posicion = this.value.indexOf( option );
+if((!(posicion === 0 - 1))) {
+this.value.splice( posicion,
+1 );
+}
+else {
+this.value.push( option );
+}
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],11:[function(require,module,exports){
+
+xcomponents_components.xformcombobox = Castelog.metodos.un_componente_vue2("xformcombobox",
+  "<div class=\"Component xformcombobox\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div>"
+ + "        <div v-for=\"option, option_index in options\" v-bind:key=\"'xformcombobox-' + customId + '-option-' + option_index\">"
+ + "          <div v-on:click=\"() => select_value(option)\">"
+ + "            <input class=\"combobox_input\" type=\"radio\" :id=\"'xformcombobox-' + customId + '-option-' + option_index\" :checked=\"value === option\" />"
+ + "            <label :for=\"'xformcombobox-' + customId + '-option-' + option_index\">{{ option }}</label>"
+ + "          </div>"
+ + "        </div>"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ customId:{ type:String,
+default:function() {try {
+return Castelog.metodos.un_texto_aleatorio(10, undefined);
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+initialValue:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+options:{ type:Array,
+default:function() {try {
+return [ "Yes",
+"No",
+"Maybe" ];
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ select_value( option ) {try {
+this.value = option;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],12:[function(require,module,exports){
+
 xcomponents_components.xformfield = Castelog.metodos.un_componente_vue2("xformfield",
   "<div class=\"Component xformfield\">"
  + "    <div class=\"form_group\">"
@@ -1148,7 +1371,7 @@ deactivated() {
 }
 };},
   null);
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 
 xcomponents_components.xformselect = Castelog.metodos.un_componente_vue2("xformselect",
   "<div class=\"Component xformselect\">"
@@ -1173,9 +1396,9 @@ throw error;
 
 }
 },
-initialValue:{ type:Boolean,
+initialValue:{ type:String,
 default:function() {try {
-return false;
+return "";
 } catch(error) {
 console.log(error);
 throw error;
@@ -1236,7 +1459,7 @@ deactivated() {
 }
 };},
   null);
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 
 xcomponents_components.xformtextarea = Castelog.metodos.un_componente_vue2("xformtextarea",
   "<div class=\"Component xformtextarea\">"
@@ -1319,7 +1542,7 @@ deactivated() {
 }
 };},
   null);
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 
 xcomponents_components.xjumbotron = Castelog.metodos.un_componente_vue2("xjumbotron",
   "<div class=\"Component xjumbotron\">"
@@ -1372,7 +1595,7 @@ deactivated() {
 }
 };},
   null);
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 
 xcomponents_components.xlabel = Castelog.metodos.un_componente_vue2("xlabel",
   "<div class=\"Component xlabel\">"
@@ -1419,7 +1642,7 @@ deactivated() {
 }
 };},
   null);
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 
 xcomponents_components.xlayout = Castelog.metodos.un_componente_vue2("xlayout",
   "<div class=\"Component xlayout\">"
@@ -1464,7 +1687,7 @@ deactivated() {
 }
 };},
   null);
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 
 xcomponents_components.xlayoutnopaddingbottom = Castelog.metodos.un_componente_vue2("xlayoutnopaddingbottom",
   "<div class=\"Component xlayoutnopaddingbottom\">"
@@ -1509,7 +1732,7 @@ deactivated() {
 }
 };},
   null);
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 
 xcomponents_components.xlayoutnopaddingtop = Castelog.metodos.un_componente_vue2("xlayoutnopaddingtop",
   "<div class=\"Component xlayoutnopaddingtop\">"
@@ -1554,7 +1777,7 @@ deactivated() {
 }
 };},
   null);
-},{}],18:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 
 xcomponents_components.xlink = Castelog.metodos.un_componente_vue2("xlink",
   "<a class=\"Component xlink\" :href=\"href\">"
@@ -1601,7 +1824,7 @@ deactivated() {
 }
 };},
   null);
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 
 xcomponents_components.xpage = Castelog.metodos.un_componente_vue2("xpage",
   "<div class=\"Component xpage\">"
@@ -1653,7 +1876,7 @@ deactivated() {
 }
 };},
   null);
-},{}],20:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
 xcomponents_components.xpanel = Castelog.metodos.un_componente_vue2("xpanel",
   "<div class=\"Component xpanel\">"
@@ -1698,7 +1921,7 @@ deactivated() {
 }
 };},
   null);
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 
 xcomponents_components.xparagraph = Castelog.metodos.un_componente_vue2("xparagraph",
   "<p class=\"Component xparagraph\">"
@@ -1743,7 +1966,7 @@ deactivated() {
 }
 };},
   null);
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 
 xcomponents_components.xstatic = Castelog.metodos.un_componente_vue2("xstatic",
   "<div class=\"Component xstatic\">"
@@ -1800,7 +2023,7 @@ deactivated() {
 }
 };},
   null);
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 
 xcomponents_components.xsubtitle = Castelog.metodos.un_componente_vue2("xsubtitle",
   "<div class=\"Component xsubtitle\">"
@@ -1845,7 +2068,7 @@ deactivated() {
 }
 };},
   null);
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 
 xcomponents_components.xtable = Castelog.metodos.un_componente_vue2("xtable",
   "<table class=\"Component xtable\">"
@@ -1890,7 +2113,7 @@ deactivated() {
 }
 };},
   null);
-},{}],25:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 
 xcomponents_components.xtablebody = Castelog.metodos.un_componente_vue2("xtablebody",
   "<tbody class=\"Component xtablebody\">"
@@ -1935,7 +2158,7 @@ deactivated() {
 }
 };},
   null);
-},{}],26:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 
 xcomponents_components.xtablecell = Castelog.metodos.un_componente_vue2("xtablecell",
   "<td class=\"Component xtablecell\">"
@@ -1980,7 +2203,7 @@ deactivated() {
 }
 };},
   null);
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 
 xcomponents_components.xtablehead = Castelog.metodos.un_componente_vue2("xtablehead",
   "<thead class=\"Component xtablehead\">"
@@ -2025,7 +2248,7 @@ deactivated() {
 }
 };},
   null);
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 
 xcomponents_components.xtableheader = Castelog.metodos.un_componente_vue2("xtableheader",
   "<th class=\"Component xtableheader\">"
@@ -2070,7 +2293,7 @@ deactivated() {
 }
 };},
   null);
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 
 xcomponents_components.xtablerow = Castelog.metodos.un_componente_vue2("xtablerow",
   "<tr class=\"Component xtablerow\">"
@@ -2115,7 +2338,7 @@ deactivated() {
 }
 };},
   null);
-},{}],30:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 
 xcomponents_components.xtester = Castelog.metodos.un_componente_vue2("xtester",
   "<div class=\"Component xtester\">"
@@ -2169,7 +2392,7 @@ deactivated() {
 }
 };},
   null);
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 
 xcomponents_components.xtitle = Castelog.metodos.un_componente_vue2("xtitle",
   "<div class=\"Component xtitle\">"
@@ -2216,7 +2439,7 @@ deactivated() {
 }
 };},
   null);
-},{}],32:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 
 xcomponents_components.xtooltip = Castelog.metodos.un_componente_vue2("xtooltip",
   "<div class=\"Component xtooltip\" role=\"tooltip\">"
@@ -2261,7 +2484,7 @@ deactivated() {
 }
 };},
   null);
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 
 xcomponents_components.xwindow = Castelog.metodos.un_componente_vue2("xwindow",
   "<div class=\"Component xwindow window\">"
@@ -2306,7 +2529,7 @@ deactivated() {
 }
 };},
   null);
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 
 xcomponents_components.xwindowbody = Castelog.metodos.un_componente_vue2("xwindowbody",
   "<div class=\"Component xwindowbody window-body\">"
@@ -2351,7 +2574,7 @@ deactivated() {
 }
 };},
   null);
-},{}],35:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 
 xcomponents_components.xwindowfooter = Castelog.metodos.un_componente_vue2("xwindowfooter",
   "<div class=\"Component xwindowfooter status-bar\">"
@@ -2396,7 +2619,7 @@ deactivated() {
 }
 };},
   null);
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 xcomponents_components.xwindowfooteritem = Castelog.metodos.un_componente_vue2("xwindowfooteritem",
   "<div class=\"Component xwindowfooteritem status-bar-field\">"
@@ -2441,7 +2664,7 @@ deactivated() {
 }
 };},
   null);
-},{}],37:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 xcomponents_components.xwindowtitle = Castelog.metodos.un_componente_vue2("xwindowtitle",
   "<div class=\"Component xwindowtitle title-bar\">"

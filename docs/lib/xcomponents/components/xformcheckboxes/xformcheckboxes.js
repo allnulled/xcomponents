@@ -1,15 +1,18 @@
 
-xcomponents_components.xformselect = Castelog.metodos.un_componente_vue2("xformselect",
-  "<div class=\"Component xformselect\">"
+xcomponents_components.xformcheckboxes = Castelog.metodos.un_componente_vue2("xformcheckboxes",
+  "<div class=\"Component xformcheckboxes\">"
  + "    <div class=\"form_group\">"
  + "      <div class=\"form_group_label\">"
  + "        <slot></slot>"
  + "      </div>"
- + "      <select class=\"select_input\" v-model=\"value\">"
- + "        <option v-for=\"option, option_index in options\" v-bind:key=\"'xformselect-' + customId + '-option-' + option_index\" :value=\"option\">"
- + "          {{ option }}"
- + "        </option>"
- + "      </select>"
+ + "      <div>"
+ + "        <div v-for=\"option, option_index in options\" v-bind:key=\"'xformcheckboxes-' + customId + '-option-' + option_index\">"
+ + "          <div v-on:click=\"() => select_value(option)\">"
+ + "            <input class=\"checkbox_input\" type=\"checkbox\" :checked=\"value.indexOf(option) !== -1\" />"
+ + "            <label>{{ option }}</label>"
+ + "          </div>"
+ + "        </div>"
+ + "      </div>"
  + "    </div>"
  + "  </div>",
   function(component) {return { props:{ customId:{ type:String,
@@ -22,9 +25,9 @@ throw error;
 
 }
 },
-initialValue:{ type:String,
+initialValue:{ type:Array,
 default:function() {try {
-return "";
+return [  ];
 } catch(error) {
 console.log(error);
 throw error;
@@ -37,7 +40,16 @@ default:function() {
 }
 },
 options:{ type:Array,
-required:true
+default:function() {try {
+return [ "Yes",
+"No",
+"Maybe" ];
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
 }
 },
 data() {try {
@@ -49,7 +61,21 @@ throw error;
 }
 
 },
-methods:{ 
+methods:{ select_value( option ) {try {
+const posicion = this.value.indexOf( option );
+if((!(posicion === 0 - 1))) {
+this.value.splice( posicion,
+1 );
+}
+else {
+this.value.push( option );
+}
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
 },
 watch:{ value( nuevo_valor ) {try {
 this.onChange( nuevo_valor,

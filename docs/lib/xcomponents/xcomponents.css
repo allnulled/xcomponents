@@ -62,6 +62,20 @@
 .xformcheckbox .checkbox_input {
     display: none;
 }
+.xformcheckboxes .form_group {
+    padding: 8px;
+    padding-top: 12px;
+}
+.xformcheckboxes .checkbox_input {
+    display: none;
+}
+.xformcombobox .form_group {
+    padding: 8px;
+    padding-top: 12px;
+}
+.xformcombobox .combobox_input {
+    
+}
 .xformfield .form_group {
     padding: 8px;
     padding-top: 12px;

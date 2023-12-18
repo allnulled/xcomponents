@@ -61,10 +61,14 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "    <div>"
  + "      <h5>xform</h5>"
  + "      <xform>"
- + "        <xformfield placeholder=\"Some placeholder...\">Form field</xformfield>"
- + "        <xformtextarea placeholder=\"Some placeholder...\">Form text area</xformtextarea>"
- + "        <xformcheckbox message-on-selected=\"Activated\" message-on-unselected=\"Deactivated\">Form checkbox</xformcheckbox>"
- + "        <xformselect :options=\"['One', 'Two', 'Three', 'Four']\">Form select</xformselect>"
+ + "        <xformfield placeholder=\"Some placeholder...\" :initial-value=\"form_field\" :on-change=\"v => form_field = v\">xformfield:</xformfield>"
+ + "        <xformtextarea placeholder=\"Some placeholder...\" :initial-value=\"form_textarea\" :on-change=\"v => form_textarea = v\">xformtextarea:</xformtextarea>"
+ + "        <xformcheckbox message-on-selected=\"Activated\" message-on-unselected=\"Deactivated\" :initial-value=\"form_checkbox\" :on-change=\"v => form_checkbox = v\">xformcheckbox:</xformcheckbox>"
+ + "        <xformselect :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_select\" :on-change=\"v => form_select = v\">xformselect:</xformselect>"
+ + "        <xformcombobox :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_combobox\" :on-change=\"v => form_combobox = v\">xformcombobox:</xformcombobox>"
+ + "        <xformcheckboxes :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_checkboxes\" :on-change=\"v => form_checkboxes = v\">xformcheckboxes:</xformcheckboxes>"
+ + "        "
+ + "        <pre>{{ JSON.stringify({ form_field, form_textarea, form_checkbox, form_select, form_combobox, form_checkboxes }, null, 2) }}</pre>"
  + "      </xform>"
  + "    </div>"
  + "    <div>"
@@ -152,7 +156,12 @@ required:true
 }
 },
 data() {try {
-return { 
+return { form_field:"Default text",
+form_select:"Two",
+form_combobox:"Three",
+form_textarea:"Default text for textarea",
+form_checkbox:true,
+form_checkboxes:[  ]
 };
 } catch(error) {
 console.log(error);
