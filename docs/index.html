@@ -67,8 +67,12 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "        <xformselect :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_select\" :on-change=\"v => form_select = v\">xformselect:</xformselect>"
  + "        <xformcombobox :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_combobox\" :on-change=\"v => form_combobox = v\">xformcombobox:</xformcombobox>"
  + "        <xformcheckboxes :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_checkboxes\" :on-change=\"v => form_checkboxes = v\">xformcheckboxes:</xformcheckboxes>"
- + "        "
- + "        <pre>{{ JSON.stringify({ form_field, form_textarea, form_checkbox, form_select, form_combobox, form_checkboxes }, null, 2) }}</pre>"
+ + "        <xformnumber :initial-value=\"50\" :on-change=\"v => form_number = v\">xformnumber:</xformnumber>"
+ + "        <xformrange :initial-value=\"50\" :on-change=\"v => form_range = v\">xformrange:</xformrange>"
+ + "        <xformdate :on-change=\"v => form_date = v\" :initial-value=\"form_date\">xformdate:</xformdate>"
+ + "        <xformtime :on-change=\"v => form_time = v\" :initial-value=\"form_time\">xformtime:</xformtime>"
+ + "        <xformdatetime :on-change=\"v => form_datetime = v\" :initial-value=\"form_datetime\">xformdatetime:</xformdatetime>"
+ + "        <pre>{{ JSON.stringify({ form_field, form_textarea, form_checkbox, form_select, form_combobox, form_checkboxes, form_number, form_range, form_date }, null, 2) }}</pre>"
  + "      </xform>"
  + "    </div>"
  + "    <div>"
@@ -161,7 +165,12 @@ form_select:"Two",
 form_combobox:"Three",
 form_textarea:"Default text for textarea",
 form_checkbox:true,
-form_checkboxes:[  ]
+form_checkboxes:[  ],
+form_number:50,
+form_range:20,
+form_date:"2023-01-30",
+form_time:"10:20:00.000",
+form_datetime:"2023-01-30 10:20:00.000"
 };
 } catch(error) {
 console.log(error);

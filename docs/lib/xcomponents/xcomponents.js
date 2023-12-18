@@ -15,6 +15,11 @@ const xformcombobox = require("./xformcombobox/xformcombobox.js");
 const xformfield = require("./xformfield/xformfield.js");
 const xformtextarea = require("./xformtextarea/xformtextarea.js");
 const xformselect = require("./xformselect/xformselect.js");
+const xformnumber = require("./xformnumber/xformnumber.js");
+const xformrange = require("./xformrange/xformrange.js");
+const xformdate = require("./xformdate/xformdate.js");
+const xformtime = require("./xformtime/xformtime.js");
+const xformdatetime = require("./xformdatetime/xformdatetime.js");
 const xjumbotron = require("./xjumbotron/xjumbotron.js");
 const xlabel = require("./xlabel/xlabel.js");
 const xlayout = require("./xlayout/xlayout.js");
@@ -40,6 +45,7 @@ const xwindowbody = require("./xwindowbody/xwindowbody.js");
 const xwindowfooter = require("./xwindowfooter/xwindowfooter.js");
 const xwindowfooteritem = require("./xwindowfooteritem/xwindowfooteritem.js");
 const xwindowtitle = require("./xwindowtitle/xwindowtitle.js");
+const vuejsCalendario = require("./vuejs-calendario/vuejs-calendario.js");
 const xstatic = require("./xstatic/xstatic.js");
 
 Object.assign(window.xcomponents_api, {
@@ -49,7 +55,504 @@ Object.assign(window.xcomponents_api, {
 window.xcomponents_api.default = window.xcomponents_api;
 
 module.exports = window.xcomponents_api;
-},{"./xbreadcrumb/xbreadcrumb.js":2,"./xbutton/xbutton.js":3,"./xcollapser/xcollapser.js":4,"./xcollapsible/xcollapsible.js":5,"./xdialogport/xdialogcurrent.js":6,"./xdialogport/xdialogport.js":7,"./xform/xform.js":8,"./xformcheckbox/xformcheckbox.js":9,"./xformcheckboxes/xformcheckboxes.js":10,"./xformcombobox/xformcombobox.js":11,"./xformfield/xformfield.js":12,"./xformselect/xformselect.js":13,"./xformtextarea/xformtextarea.js":14,"./xjumbotron/xjumbotron.js":15,"./xlabel/xlabel.js":16,"./xlayout/xlayout.js":17,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":18,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":19,"./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js":20,"./xlink/xlink.js":21,"./xpage/xpage.js":22,"./xpanel/xpanel.js":23,"./xparagraph/xparagraph.js":24,"./xstatic/xstatic.js":25,"./xsubtitle/xsubtitle.js":26,"./xtable/xtable.js":27,"./xtablebody/xtablebody.js":28,"./xtablecell/xtablecell.js":29,"./xtablehead/xtablehead.js":30,"./xtableheader/xtableheader.js":31,"./xtablerow/xtablerow.js":32,"./xtester/xtester.js":33,"./xtitle/xtitle.js":34,"./xtooltip/xtooltip.js":35,"./xwindow/xwindow.js":36,"./xwindowbody/xwindowbody.js":37,"./xwindowfooter/xwindowfooter.js":38,"./xwindowfooteritem/xwindowfooteritem.js":39,"./xwindowtitle/xwindowtitle.js":40}],2:[function(require,module,exports){
+},{"./vuejs-calendario/vuejs-calendario.js":2,"./xbreadcrumb/xbreadcrumb.js":3,"./xbutton/xbutton.js":4,"./xcollapser/xcollapser.js":5,"./xcollapsible/xcollapsible.js":6,"./xdialogport/xdialogcurrent.js":7,"./xdialogport/xdialogport.js":8,"./xform/xform.js":9,"./xformcheckbox/xformcheckbox.js":10,"./xformcheckboxes/xformcheckboxes.js":11,"./xformcombobox/xformcombobox.js":12,"./xformdate/xformdate.js":13,"./xformdatetime/xformdatetime.js":14,"./xformfield/xformfield.js":15,"./xformnumber/xformnumber.js":16,"./xformrange/xformrange.js":17,"./xformselect/xformselect.js":18,"./xformtextarea/xformtextarea.js":19,"./xformtime/xformtime.js":20,"./xjumbotron/xjumbotron.js":21,"./xlabel/xlabel.js":22,"./xlayout/xlayout.js":23,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":24,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":25,"./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js":26,"./xlink/xlink.js":27,"./xpage/xpage.js":28,"./xpanel/xpanel.js":29,"./xparagraph/xparagraph.js":30,"./xstatic/xstatic.js":31,"./xsubtitle/xsubtitle.js":32,"./xtable/xtable.js":33,"./xtablebody/xtablebody.js":34,"./xtablecell/xtablecell.js":35,"./xtablehead/xtablehead.js":36,"./xtableheader/xtableheader.js":37,"./xtablerow/xtablerow.js":38,"./xtester/xtester.js":39,"./xtitle/xtitle.js":40,"./xtooltip/xtooltip.js":41,"./xwindow/xwindow.js":42,"./xwindowbody/xwindowbody.js":43,"./xwindowfooter/xwindowfooter.js":44,"./xwindowfooteritem/xwindowfooteritem.js":45,"./xwindowtitle/xwindowtitle.js":46}],2:[function(require,module,exports){
+
+window.VuejsCalendario = Castelog.metodos.un_componente_vue2("VuejsCalendario",
+  "<div class=\"Component VuejsCalendario\">"
+ + "    <div class=\"vuejs_calendario_contenedor\">"
+ + "      <template v-if=\"mode === 'datetime' || mode === 'date'\">"
+ + "        <div v-if=\"['datetime','date'].indexOf(mode) !== -1\" class=\"chivato_de_fecha\">{{ obtener_fecha_formateada(fecha_seleccionada) }}</div>"
+ + "        <div v-if=\"['datetime','time'].indexOf(mode) !== -1\" class=\"chivato_de_fecha\">{{ espaciar_izquierda(hora_seleccionada, 2) }}:{{ espaciar_izquierda(minuto_seleccionado, 2) }}:{{ espaciar_izquierda(segundo_seleccionado, 2) }}.{{ espaciar_izquierda(milisegundo_seleccionado, 3) }}</div>"
+ + "        <table class=\"tabla_de_calendario\">"
+ + "          <tbody>"
+ + "            <tr>"
+ + "              <td>"
+ + "                <button class=\"boton_de_mover_mes\" v-on:click=\"ir_a_mes_anterior\"> ◀ </button>"
+ + "              </td>"
+ + "              <td>"
+ + "                <button class=\"boton_de_mover_mes\" v-on:click=\"ir_a_mes_siguiente\"> ▶ </button>"
+ + "              </td>"
+ + "            </tr>"
+ + "          </tbody>"
+ + "        </table>"
+ + "        <table class=\"tabla_de_calendario\">"
+ + "          <tbody>"
+ + "            <tr v-for=\"semana, semana_index in celdas_del_mes_actual\" v-bind:key=\"'semana-' + semana_index\">"
+ + "              <td v-for=\"dia, dia_index in semana\" v-bind:key=\"'dia-' + dia_index\">"
+ + "                <span v-if=\"dia\">"
+ + "                  <button class=\"boton_de_calendario\" :class=\"{active: dia.getDate() === fecha_seleccionada.getDate()}\" v-on:click=\"() => seleccionar_dia(dia)\">{{ dia.getDate() }}</button>"
+ + "                </span>"
+ + "              </td>"
+ + "            </tr>"
+ + "          </tbody>"
+ + "        </table>"
+ + "      </template>"
+ + "      <template v-if=\"mode === 'datetime' || mode === 'time'\">"
+ + "        <table class=\"tabla_de_calendario\">"
+ + "          <tbody>"
+ + "            <tr>"
+ + "              <td>"
+ + "                <button class=\"boton_de_calendario\" v-on:click=\"agregar_hora\"> ▲ </button>"
+ + "              </td>"
+ + "              <td>"
+ + "                <button class=\"boton_de_calendario\" v-on:click=\"agregar_minuto\"> ▲ </button>"
+ + "              </td>"
+ + "              <td>"
+ + "                <button class=\"boton_de_calendario\" v-on:click=\"agregar_segundo\"> ▲ </button>"
+ + "              </td>"
+ + "            </tr>"
+ + "            <tr>"
+ + "              <td>"
+ + "                <table>"
+ + "                  <tr>"
+ + "                    <td><input class=\"entrada_de_calendario\" type=\"text\" v-model=\"hora_seleccionada\" /></td>"
+ + "                  </tr>"
+ + "                </table>"
+ + "              </td>"
+ + "              <td>"
+ + "                <table>"
+ + "                  <tr>"
+ + "                    <td><input class=\"entrada_de_calendario\" type=\"text\" v-model=\"minuto_seleccionado\" /></td>"
+ + "                  </tr>"
+ + "                </table>"
+ + "              </td>"
+ + "              <td>"
+ + "                <table>"
+ + "                  <tr>"
+ + "                    <td><input class=\"entrada_de_calendario\" type=\"text\" v-model=\"segundo_seleccionado\" /></td>"
+ + "                  </tr>"
+ + "                </table>"
+ + "              </td>"
+ + "            </tr>"
+ + "            <tr>"
+ + "              <td>"
+ + "                <button class=\"boton_de_calendario\" v-on:click=\"quitar_hora\"> ▼ </button>"
+ + "              </td>"
+ + "              <td>"
+ + "                <button class=\"boton_de_calendario\" v-on:click=\"quitar_minuto\"> ▼ </button>"
+ + "              </td>"
+ + "              <td>"
+ + "                <button class=\"boton_de_calendario\" v-on:click=\"quitar_segundo\"> ▼ </button>"
+ + "              </td>"
+ + "            </tr>"
+ + "            <tr>"
+ + "              <td colspan=\"100\">"
+ + "                <input class=\"entrada_de_calendario\" type=\"text\" v-model=\"milisegundo_seleccionado\" />"
+ + "              </td>"
+ + "            </tr>"
+ + "          </tbody>"
+ + "        </table>"
+ + "      </template>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ mode:{ type:String,
+default:function() {try {
+return "datetime";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+initialValue:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+}
+},
+data() {try {
+return { fecha_seleccionada:undefined,
+celdas_del_mes_actual:undefined,
+hora_seleccionada:"0",
+minuto_seleccionado:"0",
+segundo_seleccionado:"0",
+milisegundo_seleccionado:"0"
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ ir_a_mes_anterior() {try {
+const nueva_fecha = new Date( this.fecha_seleccionada );
+nueva_fecha.setMonth( nueva_fecha.getMonth(  ) - 1 );
+this.fecha_seleccionada = nueva_fecha;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+ir_a_mes_siguiente() {try {
+const nueva_fecha = new Date( this.fecha_seleccionada );
+nueva_fecha.setMonth( nueva_fecha.getMonth(  ) + 1 );
+this.fecha_seleccionada = nueva_fecha;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+agregar_hora() {try {
+let hora = parseInt( this.hora_seleccionada );
+hora += 1;
+this.hora_seleccionada = hora;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+agregar_minuto() {try {
+let minuto = parseInt( this.minuto_seleccionado );
+minuto += 1;
+this.minuto_seleccionado = minuto;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+agregar_segundo() {try {
+let segundo = parseInt( this.segundo_seleccionado );
+segundo += 1;
+this.segundo_seleccionado = segundo;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+quitar_hora() {try {
+let hora = parseInt( this.hora_seleccionada );
+hora -= 1;
+this.hora_seleccionada = hora;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+quitar_minuto() {try {
+let minuto = parseInt( this.minuto_seleccionado );
+minuto -= 1;
+this.minuto_seleccionado = minuto;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+quitar_segundo() {try {
+let segundo = parseInt( this.segundo_seleccionado );
+segundo -= 1;
+this.segundo_seleccionado = segundo;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+seleccionar_dia( dia ) {try {
+this.fecha_seleccionada = dia;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+espaciar_izquierda( texto,
+longitud,
+relleno = "0" ) {try {
+let salida = "" + texto;
+while(salida.length < longitud) {
+salida = relleno + salida;
+}
+return salida;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+obtener_fecha_formateada( fecha ) {try {
+if(typeof fecha === 'undefined') {
+return;
+}
+let formato = "";
+formato += ( () => {
+try {
+if(fecha.getDay(  ) === 0) {
+return "Domingo";
+}
+if(fecha.getDay(  ) === 1) {
+return "Lunes";
+}
+if(fecha.getDay(  ) === 2) {
+return "Martes";
+}
+if(fecha.getDay(  ) === 3) {
+return "Miércoles";
+}
+if(fecha.getDay(  ) === 4) {
+return "Jueves";
+}
+if(fecha.getDay(  ) === 5) {
+return "Viernes";
+}
+if(fecha.getDay(  ) === 6) {
+return "Sábado";
+}
+} catch(error) {
+console.log(error);
+throw error;
+}
+})();
+formato += ", ";
+formato += fecha.getDate(  );
+formato += " de ";
+formato += ( () => {
+try {
+if(fecha.getMonth(  ) === 0) {
+return "Enero";
+}
+if(fecha.getMonth(  ) === 1) {
+return "Febrero";
+}
+if(fecha.getMonth(  ) === 2) {
+return "Marzo";
+}
+if(fecha.getMonth(  ) === 3) {
+return "Abril";
+}
+if(fecha.getMonth(  ) === 4) {
+return "Mayo";
+}
+if(fecha.getMonth(  ) === 5) {
+return "Junio";
+}
+if(fecha.getMonth(  ) === 6) {
+return "Julio";
+}
+if(fecha.getMonth(  ) === 7) {
+return "Agosto";
+}
+if(fecha.getMonth(  ) === 8) {
+return "Septiembre";
+}
+if(fecha.getMonth(  ) === 9) {
+return "Octubre";
+}
+if(fecha.getMonth(  ) === 10) {
+return "Noviembre";
+}
+if(fecha.getMonth(  ) === 11) {
+return "Diciembre";
+}
+} catch(error) {
+console.log(error);
+throw error;
+}
+})();
+formato += " de ";
+formato += fecha.getFullYear(  );
+return formato;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+obtener_valor() {try {
+let valor = "";
+if(this.mode === "datetime" || this.mode === "date") {
+valor += this.espaciar_izquierda( this.fecha_seleccionada.getFullYear(  ),
+4 );
+valor += "-";
+valor += this.espaciar_izquierda( this.fecha_seleccionada.getMonth(  ) + 1,
+2 );
+valor += "-";
+valor += this.espaciar_izquierda( this.fecha_seleccionada.getDate(  ),
+2 );
+}
+if(this.mode === "datetime") {
+valor += " ";
+}
+if(this.mode === "datetime" || this.mode === "time") {
+valor += this.espaciar_izquierda( this.hora_seleccionada,
+2 );
+valor += ":";
+valor += this.espaciar_izquierda( this.minuto_seleccionado,
+2 );
+valor += ":";
+valor += this.espaciar_izquierda( this.segundo_seleccionado,
+2 );
+valor += ".";
+valor += this.espaciar_izquierda( this.milisegundo_seleccionado,
+3 );
+}
+return valor;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+obtener_fecha_a_partir_de_texto( texto_de_fecha_original ) {try {
+const argumentos = [  ];
+let texto_de_fecha = texto_de_fecha_original;
+if(this.mode === "time") {
+texto_de_fecha = "2024-01-01 " + texto_de_fecha;
+}
+if(texto_de_fecha) {
+argumentos.push( texto_de_fecha );
+}
+let date = new Date( 
+...(argumentos ) );
+if(date instanceof Date && (!(isNaN( date )))) {
+
+}
+else {
+date = new Date(  );
+}
+console.log("texto_de_fecha");
+console.log(texto_de_fecha);
+return date;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+watch:{ fecha_seleccionada( nuevo_valor ) {try {
+const dias = [  ];
+const dia_1_del_mes = new Date( nuevo_valor );
+dia_1_del_mes.setDate( 1 );
+dia_1_del_mes.setHours( 0 );
+dia_1_del_mes.setMinutes( 0 );
+dia_1_del_mes.setSeconds( 0 );
+dia_1_del_mes.setMilliseconds( 0 );
+const dias_antes_de_entrar_en_el_mes = ( () => {
+try {
+const dia_de_semana = dia_1_del_mes.getDay(  );
+if(dia_de_semana === 0) {
+return 6;
+}
+if(dia_de_semana === 1) {
+return 0;
+}
+if(dia_de_semana === 2) {
+return 1;
+}
+if(dia_de_semana === 3) {
+return 2;
+}
+if(dia_de_semana === 4) {
+return 3;
+}
+if(dia_de_semana === 5) {
+return 4;
+}
+if(dia_de_semana === 6) {
+return 5;
+}
+} catch(error) {
+console.log(error);
+throw error;
+}
+})();
+const celdas_vacias_anteriores = new Array( dias_antes_de_entrar_en_el_mes );
+const dia_final_del_mes = new Date( nuevo_valor );
+dia_final_del_mes.setMonth( dia_final_del_mes.getMonth(  ) + 1 );
+dia_final_del_mes.setDate( 1 );
+dia_final_del_mes.setDate( dia_final_del_mes.getDate(  ) - 1 );
+const numero_final_de_mes = dia_final_del_mes.getDate(  );
+let fila_actual = celdas_vacias_anteriores;
+for(let index = 1; index < numero_final_de_mes + 1; index++) {const nueva_fecha = new Date( dia_1_del_mes );
+nueva_fecha.setDate( index );
+fila_actual.push( nueva_fecha );
+if(nueva_fecha.getDay(  ) === 0) {
+dias.push( fila_actual );
+fila_actual = [  ];
+}}
+if(fila_actual.length) {
+dias.push( fila_actual );
+}
+this.celdas_del_mes_actual = dias;
+this.onChange( this.obtener_valor(  ),
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+hora_seleccionada( nuevo_valor ) {try {
+this.onChange( this.obtener_valor(  ),
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+minuto_seleccionado( nuevo_valor ) {try {
+this.onChange( this.obtener_valor(  ),
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+segundo_seleccionado( nuevo_valor ) {try {
+this.onChange( this.obtener_valor(  ),
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+milisegundo_seleccionado( nuevo_valor ) {try {
+this.onChange( this.obtener_valor(  ),
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+mounted() {try {
+const date = this.obtener_fecha_a_partir_de_texto( this.initialValue );
+console.log(date);
+this.fecha_seleccionada = date;
+this.hora_seleccionada = date.getHours(  );
+this.minuto_seleccionado = date.getMinutes(  );
+this.segundo_seleccionado = date.getSeconds(  );
+this.milisegundo_seleccionado = date.getMilliseconds(  );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+};},
+  null);
+},{}],3:[function(require,module,exports){
 
 xcomponents_components.xbreadcrumb = Castelog.metodos.un_componente_vue2("xbreadcrumb",
   "<div class=\"Component xbreadcrumb\">"
@@ -96,7 +599,7 @@ deactivated() {
 }
 };},
   null);
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 
 xcomponents_components.xbutton = Castelog.metodos.un_componente_vue2("xbutton",
   "<button class=\"Component xbutton\">"
@@ -141,7 +644,7 @@ deactivated() {
 }
 };},
   null);
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 
 xcomponents_components.xcollapser = Castelog.metodos.un_componente_vue2("xcollapser",
   "<summary class=\"Component xcollapser\">"
@@ -186,7 +689,7 @@ deactivated() {
 }
 };},
   null);
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 
 xcomponents_components.xcollapsible = Castelog.metodos.un_componente_vue2("xcollapsible",
   "<details class=\"Component xcollapsible\">"
@@ -231,7 +734,7 @@ deactivated() {
 }
 };},
   null);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 
 xcomponents_components.xdialogcurrent = Castelog.metodos.un_componente_vue2("xdialogcurrent",
   "<div class=\"Component xdialogcurrent\">"
@@ -278,7 +781,7 @@ deactivated() {
 }
 };},
   null);
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 
 xcomponents_components.xdialogport = Castelog.metodos.un_componente_vue2("xdialogport",
   "<div class=\"Component xdialogport\">"
@@ -914,7 +1417,7 @@ deactivated() {
 }
 };},
   null);
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 
 xcomponents_components.xform = Castelog.metodos.un_componente_vue2("xform",
   "<div class=\"Component xform\">"
@@ -961,7 +1464,7 @@ deactivated() {
 }
 };},
   null);
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 
 xcomponents_components.xformcheckbox = Castelog.metodos.un_componente_vue2("xformcheckbox",
   "<div class=\"Component xformcheckbox\">"
@@ -1068,7 +1571,7 @@ deactivated() {
 }
 };},
   null);
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 
 xcomponents_components.xformcheckboxes = Castelog.metodos.un_componente_vue2("xformcheckboxes",
   "<div class=\"Component xformcheckboxes\">"
@@ -1182,7 +1685,7 @@ deactivated() {
 }
 };},
   null);
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 
 xcomponents_components.xformcombobox = Castelog.metodos.un_componente_vue2("xformcombobox",
   "<div class=\"Component xformcombobox\">"
@@ -1289,7 +1792,267 @@ deactivated() {
 }
 };},
   null);
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+
+xcomponents_components.xformdate = Castelog.metodos.un_componente_vue2("xformdate",
+  "<div class=\"Component xformdate\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div style=\"position: relative; max-width: 220px; background-color: #222; color: white;\">"
+ + "        <xtable style=\"width:100%;\">"
+ + "          <xtablebody>"
+ + "            <xtablerow>"
+ + "              <xtablecell>"
+ + "                <button style=\"min-width: auto;\" v-on:click=\"() => esta_mostrando_calendario = !esta_mostrando_calendario\">🗓</button>"
+ + "              </xtablecell>"
+ + "              <xtablecell style=\"white-space: nowrap;\">"
+ + "                <input type=\"text\" v-model=\"value\" style=\"text-align:right; width:100%;\" disabled=\"true\" />"
+ + "              </xtablecell>"
+ + "            </xtablerow>"
+ + "            <xtablerow v-if=\"esta_mostrando_calendario\">"
+ + "              <xtablecell colspan=\"100\">"
+ + "                <VuejsCalendario mode=\"date\" :initial-value=\"value\" :on-change=\"v => value = v\"></VuejsCalendario>"
+ + "              </xtablecell>"
+ + "            </xtablerow>"
+ + "          </xtablebody>"
+ + "        </xtable>"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ initialValue:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+placeholder:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+min:{ type:Number,
+default:function() {try {
+return 0;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+max:{ type:Number,
+default:function() {try {
+return 100;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+step:{ type:Number,
+default:function() {try {
+return 10;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { esta_mostrando_calendario:false,
+value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],14:[function(require,module,exports){
+
+xcomponents_components.xformdatetime = Castelog.metodos.un_componente_vue2("xformdatetime",
+  "<div class=\"Component xformdatetime\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div style=\"position: relative; max-width: 220px; background-color: #222; color: white;\">"
+ + "        <xtable style=\"width:100%;\">"
+ + "          <xtablebody>"
+ + "            <xtablerow>"
+ + "              <xtablecell>"
+ + "                <button style=\"min-width: auto;\" v-on:click=\"() => esta_mostrando_calendario = !esta_mostrando_calendario\">🗓</button>"
+ + "              </xtablecell>"
+ + "              <xtablecell style=\"white-space: nowrap;\">"
+ + "                <input type=\"text\" v-model=\"value\" style=\"text-align:right; width:100%;\" disabled=\"true\" />"
+ + "              </xtablecell>"
+ + "            </xtablerow>"
+ + "            <xtablerow v-if=\"esta_mostrando_calendario\">"
+ + "              <xtablecell colspan=\"100\">"
+ + "                <VuejsCalendario mode=\"datetime\" :initial-value=\"value\" :on-change=\"v => value = v\"></VuejsCalendario>"
+ + "              </xtablecell>"
+ + "            </xtablerow>"
+ + "          </xtablebody>"
+ + "        </xtable>"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ initialValue:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+placeholder:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+min:{ type:Number,
+default:function() {try {
+return 0;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+max:{ type:Number,
+default:function() {try {
+return 100;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+step:{ type:Number,
+default:function() {try {
+return 10;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { esta_mostrando_calendario:false,
+value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],15:[function(require,module,exports){
 
 xcomponents_components.xformfield = Castelog.metodos.un_componente_vue2("xformfield",
   "<div class=\"Component xformfield\">"
@@ -1372,7 +2135,203 @@ deactivated() {
 }
 };},
   null);
-},{}],13:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
+
+xcomponents_components.xformnumber = Castelog.metodos.un_componente_vue2("xformnumber",
+  "<div class=\"Component xformnumber\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div>"
+ + "        <input class=\"text_input\" type=\"number\" v-model=\"value\" :placeholder=\"placeholder\" />"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ initialValue:{ type:Number,
+default:function() {try {
+return 0;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+placeholder:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],17:[function(require,module,exports){
+
+xcomponents_components.xformrange = Castelog.metodos.un_componente_vue2("xformrange",
+  "<div class=\"Component xformrange\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div>"
+ + "        <input class=\"text_input\" type=\"range\" v-model=\"value\" :min=\"min\" :max=\"max\" :step=\"step\" :placeholder=\"placeholder\" />"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ initialValue:{ type:Number,
+default:function() {try {
+return 0;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+placeholder:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+min:{ type:Number,
+default:function() {try {
+return 0;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+max:{ type:Number,
+default:function() {try {
+return 100;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+step:{ type:Number,
+default:function() {try {
+return 10;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],18:[function(require,module,exports){
 
 xcomponents_components.xformselect = Castelog.metodos.un_componente_vue2("xformselect",
   "<div class=\"Component xformselect\">"
@@ -1460,7 +2419,7 @@ deactivated() {
 }
 };},
   null);
-},{}],14:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 
 xcomponents_components.xformtextarea = Castelog.metodos.un_componente_vue2("xformtextarea",
   "<div class=\"Component xformtextarea\">"
@@ -1543,7 +2502,137 @@ deactivated() {
 }
 };},
   null);
-},{}],15:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
+
+xcomponents_components.xformtime = Castelog.metodos.un_componente_vue2("xformtime",
+  "<div class=\"Component xformtime\">"
+ + "    <div class=\"form_group\">"
+ + "      <div class=\"form_group_label\">"
+ + "        <slot></slot>"
+ + "      </div>"
+ + "      <div style=\"position: relative; max-width: 220px; background-color: #222; color: white;\">"
+ + "        <xtable style=\"width:100%;\">"
+ + "          <xtablebody>"
+ + "            <xtablerow>"
+ + "              <xtablecell>"
+ + "                <button style=\"min-width: auto;\" v-on:click=\"() => esta_mostrando_calendario = !esta_mostrando_calendario\">🗓</button>"
+ + "              </xtablecell>"
+ + "              <xtablecell style=\"white-space: nowrap;\">"
+ + "                <input type=\"text\" v-model=\"value\" style=\"text-align:right; width:100%;\" disabled=\"true\" />"
+ + "              </xtablecell>"
+ + "            </xtablerow>"
+ + "            <xtablerow v-if=\"esta_mostrando_calendario\">"
+ + "              <xtablecell colspan=\"100\">"
+ + "                <VuejsCalendario mode=\"time\" :initial-value=\"value\" :on-change=\"v => value = v\"></VuejsCalendario>"
+ + "              </xtablecell>"
+ + "            </xtablerow>"
+ + "          </xtablebody>"
+ + "        </xtable>"
+ + "      </div>"
+ + "    </div>"
+ + "  </div>",
+  function(component) {return { props:{ initialValue:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+onChange:{ type:Function,
+default:function() {
+}
+},
+placeholder:{ type:String,
+default:function() {try {
+return "";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+min:{ type:Number,
+default:function() {try {
+return 0;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+max:{ type:Number,
+default:function() {try {
+return 100;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+step:{ type:Number,
+default:function() {try {
+return 10;
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+}
+},
+data() {try {
+return { esta_mostrando_calendario:false,
+value:this.initialValue
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ value( nuevo_valor ) {try {
+this.onChange( nuevo_valor,
+this );
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],21:[function(require,module,exports){
 
 xcomponents_components.xjumbotron = Castelog.metodos.un_componente_vue2("xjumbotron",
   "<div class=\"Component xjumbotron\">"
@@ -1596,7 +2685,7 @@ deactivated() {
 }
 };},
   null);
-},{}],16:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
 xcomponents_components.xlabel = Castelog.metodos.un_componente_vue2("xlabel",
   "<div class=\"Component xlabel\">"
@@ -1643,7 +2732,7 @@ deactivated() {
 }
 };},
   null);
-},{}],17:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 
 xcomponents_components.xlayout = Castelog.metodos.un_componente_vue2("xlayout",
   "<div class=\"Component xlayout\">"
@@ -1688,7 +2777,7 @@ deactivated() {
 }
 };},
   null);
-},{}],18:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 
 xcomponents_components.xlayoutnopaddingbottom = Castelog.metodos.un_componente_vue2("xlayoutnopaddingbottom",
   "<div class=\"Component xlayoutnopaddingbottom\">"
@@ -1733,7 +2822,7 @@ deactivated() {
 }
 };},
   null);
-},{}],19:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 
 xcomponents_components.xlayoutnopaddingtop = Castelog.metodos.un_componente_vue2("xlayoutnopaddingtop",
   "<div class=\"Component xlayoutnopaddingtop\">"
@@ -1778,7 +2867,7 @@ deactivated() {
 }
 };},
   null);
-},{}],20:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 
 xcomponents_components.xlayoutnopaddingvertical = Castelog.metodos.un_componente_vue2("xlayoutnopaddingvertical",
   "<div class=\"Component xlayoutnopaddingvertical\">"
@@ -1823,7 +2912,7 @@ deactivated() {
 }
 };},
   null);
-},{}],21:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 
 xcomponents_components.xlink = Castelog.metodos.un_componente_vue2("xlink",
   "<a class=\"Component xlink\" :href=\"href\">"
@@ -1870,7 +2959,7 @@ deactivated() {
 }
 };},
   null);
-},{}],22:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 
 xcomponents_components.xpage = Castelog.metodos.un_componente_vue2("xpage",
   "<div class=\"Component xpage\">"
@@ -1922,7 +3011,7 @@ deactivated() {
 }
 };},
   null);
-},{}],23:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 
 xcomponents_components.xpanel = Castelog.metodos.un_componente_vue2("xpanel",
   "<div class=\"Component xpanel\">"
@@ -1967,7 +3056,7 @@ deactivated() {
 }
 };},
   null);
-},{}],24:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 
 xcomponents_components.xparagraph = Castelog.metodos.un_componente_vue2("xparagraph",
   "<p class=\"Component xparagraph\">"
@@ -2012,7 +3101,7 @@ deactivated() {
 }
 };},
   null);
-},{}],25:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 
 xcomponents_components.xstatic = Castelog.metodos.un_componente_vue2("xstatic",
   "<div class=\"Component xstatic\">"
@@ -2069,7 +3158,7 @@ deactivated() {
 }
 };},
   null);
-},{}],26:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 
 xcomponents_components.xsubtitle = Castelog.metodos.un_componente_vue2("xsubtitle",
   "<div class=\"Component xsubtitle\">"
@@ -2114,7 +3203,7 @@ deactivated() {
 }
 };},
   null);
-},{}],27:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 
 xcomponents_components.xtable = Castelog.metodos.un_componente_vue2("xtable",
   "<table class=\"Component xtable\">"
@@ -2159,7 +3248,7 @@ deactivated() {
 }
 };},
   null);
-},{}],28:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 
 xcomponents_components.xtablebody = Castelog.metodos.un_componente_vue2("xtablebody",
   "<tbody class=\"Component xtablebody\">"
@@ -2204,7 +3293,7 @@ deactivated() {
 }
 };},
   null);
-},{}],29:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 
 xcomponents_components.xtablecell = Castelog.metodos.un_componente_vue2("xtablecell",
   "<td class=\"Component xtablecell\">"
@@ -2249,7 +3338,7 @@ deactivated() {
 }
 };},
   null);
-},{}],30:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 
 xcomponents_components.xtablehead = Castelog.metodos.un_componente_vue2("xtablehead",
   "<thead class=\"Component xtablehead\">"
@@ -2294,7 +3383,7 @@ deactivated() {
 }
 };},
   null);
-},{}],31:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 
 xcomponents_components.xtableheader = Castelog.metodos.un_componente_vue2("xtableheader",
   "<th class=\"Component xtableheader\">"
@@ -2339,7 +3428,7 @@ deactivated() {
 }
 };},
   null);
-},{}],32:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 xcomponents_components.xtablerow = Castelog.metodos.un_componente_vue2("xtablerow",
   "<tr class=\"Component xtablerow\">"
@@ -2384,7 +3473,7 @@ deactivated() {
 }
 };},
   null);
-},{}],33:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 xcomponents_components.xtester = Castelog.metodos.un_componente_vue2("xtester",
   "<div class=\"Component xtester\">"
@@ -2438,7 +3527,7 @@ deactivated() {
 }
 };},
   null);
-},{}],34:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 
 xcomponents_components.xtitle = Castelog.metodos.un_componente_vue2("xtitle",
   "<div class=\"Component xtitle\">"
@@ -2485,7 +3574,7 @@ deactivated() {
 }
 };},
   null);
-},{}],35:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 
 xcomponents_components.xtooltip = Castelog.metodos.un_componente_vue2("xtooltip",
   "<div class=\"Component xtooltip\" role=\"tooltip\">"
@@ -2530,7 +3619,7 @@ deactivated() {
 }
 };},
   null);
-},{}],36:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 
 xcomponents_components.xwindow = Castelog.metodos.un_componente_vue2("xwindow",
   "<div class=\"Component xwindow window\">"
@@ -2575,7 +3664,7 @@ deactivated() {
 }
 };},
   null);
-},{}],37:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 
 xcomponents_components.xwindowbody = Castelog.metodos.un_componente_vue2("xwindowbody",
   "<div class=\"Component xwindowbody window-body\">"
@@ -2620,7 +3709,7 @@ deactivated() {
 }
 };},
   null);
-},{}],38:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 
 xcomponents_components.xwindowfooter = Castelog.metodos.un_componente_vue2("xwindowfooter",
   "<div class=\"Component xwindowfooter status-bar\">"
@@ -2665,7 +3754,7 @@ deactivated() {
 }
 };},
   null);
-},{}],39:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 
 xcomponents_components.xwindowfooteritem = Castelog.metodos.un_componente_vue2("xwindowfooteritem",
   "<div class=\"Component xwindowfooteritem status-bar-field\">"
@@ -2710,7 +3799,7 @@ deactivated() {
 }
 };},
   null);
-},{}],40:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 
 xcomponents_components.xwindowtitle = Castelog.metodos.un_componente_vue2("xwindowtitle",
   "<div class=\"Component xwindowtitle title-bar\">"

@@ -14,6 +14,11 @@ const xformcombobox = require("./xformcombobox/xformcombobox.js");
 const xformfield = require("./xformfield/xformfield.js");
 const xformtextarea = require("./xformtextarea/xformtextarea.js");
 const xformselect = require("./xformselect/xformselect.js");
+const xformnumber = require("./xformnumber/xformnumber.js");
+const xformrange = require("./xformrange/xformrange.js");
+const xformdate = require("./xformdate/xformdate.js");
+const xformtime = require("./xformtime/xformtime.js");
+const xformdatetime = require("./xformdatetime/xformdatetime.js");
 const xjumbotron = require("./xjumbotron/xjumbotron.js");
 const xlabel = require("./xlabel/xlabel.js");
 const xlayout = require("./xlayout/xlayout.js");
@@ -39,6 +44,7 @@ const xwindowbody = require("./xwindowbody/xwindowbody.js");
 const xwindowfooter = require("./xwindowfooter/xwindowfooter.js");
 const xwindowfooteritem = require("./xwindowfooteritem/xwindowfooteritem.js");
 const xwindowtitle = require("./xwindowtitle/xwindowtitle.js");
+const vuejsCalendario = require("./vuejs-calendario/vuejs-calendario.js");
 const xstatic = require("./xstatic/xstatic.js");
 
 Object.assign(window.xcomponents_api, {
