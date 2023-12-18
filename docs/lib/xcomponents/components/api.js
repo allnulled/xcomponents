@@ -19,6 +19,7 @@ const xlabel = require("./xlabel/xlabel.js");
 const xlayout = require("./xlayout/xlayout.js");
 const xlayoutnopaddingbottom = require("./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js");
 const xlayoutnopaddingtop = require("./xlayoutnopaddingtop/xlayoutnopaddingtop.js");
+const xlayoutnopaddingvertical = require("./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js");
 const xlink = require("./xlink/xlink.js");
 const xpage = require("./xpage/xpage.js");
 const xpanel = require("./xpanel/xpanel.js");

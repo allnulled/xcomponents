@@ -20,6 +20,7 @@ const xlabel = require("./xlabel/xlabel.js");
 const xlayout = require("./xlayout/xlayout.js");
 const xlayoutnopaddingbottom = require("./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js");
 const xlayoutnopaddingtop = require("./xlayoutnopaddingtop/xlayoutnopaddingtop.js");
+const xlayoutnopaddingvertical = require("./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js");
 const xlink = require("./xlink/xlink.js");
 const xpage = require("./xpage/xpage.js");
 const xpanel = require("./xpanel/xpanel.js");
@@ -48,7 +49,7 @@ Object.assign(window.xcomponents_api, {
 window.xcomponents_api.default = window.xcomponents_api;
 
 module.exports = window.xcomponents_api;
-},{"./xbreadcrumb/xbreadcrumb.js":2,"./xbutton/xbutton.js":3,"./xcollapser/xcollapser.js":4,"./xcollapsible/xcollapsible.js":5,"./xdialogport/xdialogcurrent.js":6,"./xdialogport/xdialogport.js":7,"./xform/xform.js":8,"./xformcheckbox/xformcheckbox.js":9,"./xformcheckboxes/xformcheckboxes.js":10,"./xformcombobox/xformcombobox.js":11,"./xformfield/xformfield.js":12,"./xformselect/xformselect.js":13,"./xformtextarea/xformtextarea.js":14,"./xjumbotron/xjumbotron.js":15,"./xlabel/xlabel.js":16,"./xlayout/xlayout.js":17,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":18,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":19,"./xlink/xlink.js":20,"./xpage/xpage.js":21,"./xpanel/xpanel.js":22,"./xparagraph/xparagraph.js":23,"./xstatic/xstatic.js":24,"./xsubtitle/xsubtitle.js":25,"./xtable/xtable.js":26,"./xtablebody/xtablebody.js":27,"./xtablecell/xtablecell.js":28,"./xtablehead/xtablehead.js":29,"./xtableheader/xtableheader.js":30,"./xtablerow/xtablerow.js":31,"./xtester/xtester.js":32,"./xtitle/xtitle.js":33,"./xtooltip/xtooltip.js":34,"./xwindow/xwindow.js":35,"./xwindowbody/xwindowbody.js":36,"./xwindowfooter/xwindowfooter.js":37,"./xwindowfooteritem/xwindowfooteritem.js":38,"./xwindowtitle/xwindowtitle.js":39}],2:[function(require,module,exports){
+},{"./xbreadcrumb/xbreadcrumb.js":2,"./xbutton/xbutton.js":3,"./xcollapser/xcollapser.js":4,"./xcollapsible/xcollapsible.js":5,"./xdialogport/xdialogcurrent.js":6,"./xdialogport/xdialogport.js":7,"./xform/xform.js":8,"./xformcheckbox/xformcheckbox.js":9,"./xformcheckboxes/xformcheckboxes.js":10,"./xformcombobox/xformcombobox.js":11,"./xformfield/xformfield.js":12,"./xformselect/xformselect.js":13,"./xformtextarea/xformtextarea.js":14,"./xjumbotron/xjumbotron.js":15,"./xlabel/xlabel.js":16,"./xlayout/xlayout.js":17,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":18,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":19,"./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js":20,"./xlink/xlink.js":21,"./xpage/xpage.js":22,"./xpanel/xpanel.js":23,"./xparagraph/xparagraph.js":24,"./xstatic/xstatic.js":25,"./xsubtitle/xsubtitle.js":26,"./xtable/xtable.js":27,"./xtablebody/xtablebody.js":28,"./xtablecell/xtablecell.js":29,"./xtablehead/xtablehead.js":30,"./xtableheader/xtableheader.js":31,"./xtablerow/xtablerow.js":32,"./xtester/xtester.js":33,"./xtitle/xtitle.js":34,"./xtooltip/xtooltip.js":35,"./xwindow/xwindow.js":36,"./xwindowbody/xwindowbody.js":37,"./xwindowfooter/xwindowfooter.js":38,"./xwindowfooteritem/xwindowfooteritem.js":39,"./xwindowtitle/xwindowtitle.js":40}],2:[function(require,module,exports){
 
 xcomponents_components.xbreadcrumb = Castelog.metodos.un_componente_vue2("xbreadcrumb",
   "<div class=\"Component xbreadcrumb\">"
@@ -1779,6 +1780,51 @@ deactivated() {
   null);
 },{}],20:[function(require,module,exports){
 
+xcomponents_components.xlayoutnopaddingvertical = Castelog.metodos.un_componente_vue2("xlayoutnopaddingvertical",
+  "<div class=\"Component xlayoutnopaddingvertical\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],21:[function(require,module,exports){
+
 xcomponents_components.xlink = Castelog.metodos.un_componente_vue2("xlink",
   "<a class=\"Component xlink\" :href=\"href\">"
  + "    <slot></slot>"
@@ -1824,7 +1870,7 @@ deactivated() {
 }
 };},
   null);
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 
 xcomponents_components.xpage = Castelog.metodos.un_componente_vue2("xpage",
   "<div class=\"Component xpage\">"
@@ -1876,7 +1922,7 @@ deactivated() {
 }
 };},
   null);
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 
 xcomponents_components.xpanel = Castelog.metodos.un_componente_vue2("xpanel",
   "<div class=\"Component xpanel\">"
@@ -1921,7 +1967,7 @@ deactivated() {
 }
 };},
   null);
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 
 xcomponents_components.xparagraph = Castelog.metodos.un_componente_vue2("xparagraph",
   "<p class=\"Component xparagraph\">"
@@ -1966,7 +2012,7 @@ deactivated() {
 }
 };},
   null);
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 
 xcomponents_components.xstatic = Castelog.metodos.un_componente_vue2("xstatic",
   "<div class=\"Component xstatic\">"
@@ -2023,7 +2069,7 @@ deactivated() {
 }
 };},
   null);
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 
 xcomponents_components.xsubtitle = Castelog.metodos.un_componente_vue2("xsubtitle",
   "<div class=\"Component xsubtitle\">"
@@ -2068,7 +2114,7 @@ deactivated() {
 }
 };},
   null);
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 
 xcomponents_components.xtable = Castelog.metodos.un_componente_vue2("xtable",
   "<table class=\"Component xtable\">"
@@ -2113,7 +2159,7 @@ deactivated() {
 }
 };},
   null);
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 
 xcomponents_components.xtablebody = Castelog.metodos.un_componente_vue2("xtablebody",
   "<tbody class=\"Component xtablebody\">"
@@ -2158,7 +2204,7 @@ deactivated() {
 }
 };},
   null);
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 
 xcomponents_components.xtablecell = Castelog.metodos.un_componente_vue2("xtablecell",
   "<td class=\"Component xtablecell\">"
@@ -2203,7 +2249,7 @@ deactivated() {
 }
 };},
   null);
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 
 xcomponents_components.xtablehead = Castelog.metodos.un_componente_vue2("xtablehead",
   "<thead class=\"Component xtablehead\">"
@@ -2248,7 +2294,7 @@ deactivated() {
 }
 };},
   null);
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 
 xcomponents_components.xtableheader = Castelog.metodos.un_componente_vue2("xtableheader",
   "<th class=\"Component xtableheader\">"
@@ -2293,7 +2339,7 @@ deactivated() {
 }
 };},
   null);
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 
 xcomponents_components.xtablerow = Castelog.metodos.un_componente_vue2("xtablerow",
   "<tr class=\"Component xtablerow\">"
@@ -2338,7 +2384,7 @@ deactivated() {
 }
 };},
   null);
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 
 xcomponents_components.xtester = Castelog.metodos.un_componente_vue2("xtester",
   "<div class=\"Component xtester\">"
@@ -2392,7 +2438,7 @@ deactivated() {
 }
 };},
   null);
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 
 xcomponents_components.xtitle = Castelog.metodos.un_componente_vue2("xtitle",
   "<div class=\"Component xtitle\">"
@@ -2439,7 +2485,7 @@ deactivated() {
 }
 };},
   null);
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 
 xcomponents_components.xtooltip = Castelog.metodos.un_componente_vue2("xtooltip",
   "<div class=\"Component xtooltip\" role=\"tooltip\">"
@@ -2484,7 +2530,7 @@ deactivated() {
 }
 };},
   null);
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 
 xcomponents_components.xwindow = Castelog.metodos.un_componente_vue2("xwindow",
   "<div class=\"Component xwindow window\">"
@@ -2529,7 +2575,7 @@ deactivated() {
 }
 };},
   null);
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 
 xcomponents_components.xwindowbody = Castelog.metodos.un_componente_vue2("xwindowbody",
   "<div class=\"Component xwindowbody window-body\">"
@@ -2574,7 +2620,7 @@ deactivated() {
 }
 };},
   null);
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 xcomponents_components.xwindowfooter = Castelog.metodos.un_componente_vue2("xwindowfooter",
   "<div class=\"Component xwindowfooter status-bar\">"
@@ -2619,7 +2665,7 @@ deactivated() {
 }
 };},
   null);
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 xcomponents_components.xwindowfooteritem = Castelog.metodos.un_componente_vue2("xwindowfooteritem",
   "<div class=\"Component xwindowfooteritem status-bar-field\">"
@@ -2664,7 +2710,7 @@ deactivated() {
 }
 };},
   null);
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 
 xcomponents_components.xwindowtitle = Castelog.metodos.un_componente_vue2("xwindowtitle",
   "<div class=\"Component xwindowtitle title-bar\">"
