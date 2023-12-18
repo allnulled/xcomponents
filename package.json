@@ -7,11 +7,10 @@
         "xcomponents": "src/xcomponents.bin.js"
     },
     "directories": {
-        "doc": "docs",
-        "test": "test"
+        "doc": "docs"
     },
     "scripts": {
-        "build": "npm run build-api && npm run build-ui && npm run build-css && npm test",
+        "build": "npm run build-api && npm run build-ui && npm run build-css",
         "build-css": "node dev/build-css.js",
         "build-api": "npx browserify docs/lib/xcomponents/components/api.js --outfile docs/lib/xcomponents/xcomponents.js",
         "build-ui": "cp docs/index.1.html docs/index.html",

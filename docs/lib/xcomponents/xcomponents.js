@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 window.xcomponents_components = {};
-window.uiscript_api = {};
+window.xcomponents_api = {};
 
 const xbreadcrumb = require("./xbreadcrumb/xbreadcrumb.js");
 const xbutton = require("./xbutton/xbutton.js");
@@ -30,13 +30,13 @@ const xwindowfooteritem = require("./xwindowfooteritem/xwindowfooteritem.js");
 const xwindowtitle = require("./xwindowtitle/xwindowtitle.js");
 const xstatic = require("./xstatic/xstatic.js");
 
-Object.assign(window.uiscript_api, {
+Object.assign(window.xcomponents_api, {
     components: window.xcomponents_components
 });
 
-window.uiscript_api.default = window.uiscript_api;
+window.xcomponents_api.default = window.xcomponents_api;
 
-module.exports = window.uiscript_api;
+module.exports = window.xcomponents_api;
 },{"./xbreadcrumb/xbreadcrumb.js":2,"./xbutton/xbutton.js":3,"./xdialogport/xdialogcurrent.js":4,"./xdialogport/xdialogport.js":5,"./xform/xform.js":6,"./xformfield/xformfield.js":7,"./xjumbotron/xjumbotron.js":8,"./xlabel/xlabel.js":9,"./xlayout/xlayout.js":10,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":11,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":12,"./xlink/xlink.js":13,"./xpage/xpage.js":14,"./xpanel/xpanel.js":15,"./xparagraph/xparagraph.js":16,"./xstatic/xstatic.js":17,"./xsubtitle/xsubtitle.js":18,"./xtable/xtable.js":19,"./xtablecell/xtablecell.js":20,"./xtablerow/xtablerow.js":21,"./xtester/xtester.js":22,"./xtitle/xtitle.js":23,"./xwindow/xwindow.js":24,"./xwindowbody/xwindowbody.js":25,"./xwindowfooter/xwindowfooter.js":26,"./xwindowfooteritem/xwindowfooteritem.js":27,"./xwindowtitle/xwindowtitle.js":28}],2:[function(require,module,exports){
 
 xcomponents_components.xbreadcrumb = Castelog.metodos.un_componente_vue2("xbreadcrumb",
