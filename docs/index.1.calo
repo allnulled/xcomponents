@@ -160,6 +160,10 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         </xwindowfooter>
       </xwindow>
     </div>
+    <div>
+      <h5>xprogressbar</h5>
+      <xprogressbar />
+    </div>
   </div>
 } con lógica {
   retorno {

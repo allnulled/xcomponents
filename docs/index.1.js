@@ -138,6 +138,10 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "        </xwindowfooter>"
  + "      </xwindow>"
  + "    </div>"
+ + "    <div>"
+ + "      <h5>xprogressbar</h5>"
+ + "      <xprogressbar />"
+ + "    </div>"
  + "  </div>",
   function(component) {return { props:{ root:{ type:Object,
 required:true

@@ -29,6 +29,7 @@ const xlink = require("./xlink/xlink.js");
 const xpage = require("./xpage/xpage.js");
 const xpanel = require("./xpanel/xpanel.js");
 const xparagraph = require("./xparagraph/xparagraph.js");
+const xprogressbar = require("./xprogressbar/xprogressbar.js");
 const xsubtitle = require("./xsubtitle/xsubtitle.js");
 const xtable = require("./xtable/xtable.js");
 const xtablecell = require("./xtablecell/xtablecell.js");
