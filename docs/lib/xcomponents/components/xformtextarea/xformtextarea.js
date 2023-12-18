@@ -1,12 +1,12 @@
 
-xcomponents_components.xformfield = Castelog.metodos.un_componente_vue2("xformfield",
-  "<div class=\"Component xformfield\">"
+xcomponents_components.xformtextarea = Castelog.metodos.un_componente_vue2("xformtextarea",
+  "<div class=\"Component xformtextarea\">"
  + "    <div class=\"form_group\">"
  + "      <div class=\"form_group_label\">"
  + "        <slot></slot>"
  + "      </div>"
  + "      <div>"
- + "        <input class=\"text_input\" type=\"text\" v-model=\"value\" :placeholder=\"placeholder\" />"
+ + "        <textarea class=\"textarea_input\" v-model=\"value\" :placeholder=\"placeholder\"></textarea>"
  + "      </div>"
  + "    </div>"
  + "  </div>",

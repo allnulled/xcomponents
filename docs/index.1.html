@@ -35,6 +35,13 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "      </xbreadcrumb>"
  + "    </div>"
  + "    <div>"
+ + "      <h5>xcollapsible</h5>"
+ + "      <xcollapsible>"
+ + "        <xcollapser>This is a label</xcollapser>"
+ + "        <xpanel>And these are the contents inside.</xpanel>"
+ + "      </xcollapsible>"
+ + "    </div>"
+ + "    <div>"
  + "      <h5>xjumbotron</h5>"
  + "      <xjumbotron>Jumbotron</xjumbotron>"
  + "    </div>"
@@ -54,7 +61,10 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "    <div>"
  + "      <h5>xform</h5>"
  + "      <xform>"
- + "        <xformfield>Form field</xformfield>"
+ + "        <xformfield placeholder=\"Some placeholder...\" :initial-value=\"form_field\" :on-change=\"v => form_field = v\">Form field:</xformfield>"
+ + "        <xformtextarea placeholder=\"Some placeholder...\" :initial-value=\"form_textarea\" :on-change=\"v => form_textarea = v\">Form text area:</xformtextarea>"
+ + "        <xformcheckbox message-on-selected=\"Activated\" message-on-unselected=\"Deactivated\" :initial-value=\"form_checkbox\" :on-change=\"v => form_checkbox = v\">Form checkbox:</xformcheckbox>"
+ + "        <xformselect :options=\"['One', 'Two', 'Three', 'Four']\" :initial-value=\"form_select\" :on-change=\"v => form_select = v\">Form select:</xformselect>"
  + "      </xform>"
  + "    </div>"
  + "    <div>"
@@ -88,8 +98,21 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "      <xpanel>Panel</xpanel>"
  + "    </div>"
  + "    <div>"
- + "    <h5>xtable</h5>"
+ + "      <h5>xtable</h5>"
  + "      <xtable>"
+ + "        <xtablehead>"
+ + "          <xtablerow>"
+ + "            <xtableheader>"
+ + "            Table cell"
+ + "            </xtableheader>"
+ + "            <xtableheader>"
+ + "            Table cell"
+ + "            </xtableheader>"
+ + "            <xtableheader>"
+ + "            Table cell"
+ + "            </xtableheader>"
+ + "          </xtablerow>"
+ + "        </xtablehead>"
  + "        <xtablebody>"
  + "          <xtablerow>"
  + "            <xtablecell>"
@@ -104,6 +127,14 @@ window.PaginaDeInicio = Castelog.metodos.un_componente_vue2("PaginaDeInicio",
  + "          </xtablerow>"
  + "        </xtablebody>"
  + "      </xtable>"
+ + "    </div>"
+ + "    <div>"
+ + "      <h5>xtooltip</h5>"
+ + "      <div>"
+ + "        <div>This is a layer.</div>"
+ + "        <div style=\"min-height:20px;\"></div>"
+ + "        <xtooltip class=\"is-bottom is-right\">And this is a tooltip.</xtooltip>"
+ + "      </div>"
  + "    </div>"
  + "    <div>"
  + "      <h5>xwindow</h5>"
@@ -121,7 +152,10 @@ required:true
 }
 },
 data() {try {
-return { 
+return { form_field:"Default text",
+form_select:"Two",
+form_textarea:"Default text for textarea",
+form_checkbox:true
 };
 } catch(error) {
 console.log(error);

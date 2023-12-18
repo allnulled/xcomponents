@@ -1,28 +1,34 @@
-asigno xcomponents_components.xformfield como un componente vue2 con nombre "xformfield" con plantilla {
-  <div class="Component xformfield">
+asigno xcomponents_components.xformselect como un componente vue2 con nombre "xformselect" con plantilla {
+  <div class="Component xformselect">
     <div class="form_group">
       <div class="form_group_label">
         <slot></slot>
       </div>
-      <div>
-        <input class="text_input" type="text" v-model="value" :placeholder="placeholder" />
-      </div>
+      <select class="select_input" v-model="value">
+        <option v-for="option, option_index in options" v-bind:key="'xformselect-' + customId + '-option-' + option_index" :value="option">
+          {{ option }}
+        </option>
+      </select>
     </div>
   </div>
 } con lógica {
   retorno {
     propiedad props como {
-      propiedad initialValue como {
+      propiedad customId como {
         propiedad type como String.
-        propiedad default como una función donde retorno "".
+        propiedad default como una función donde retorno un texto aleatorio de 10 caracteres.
+      }.
+      propiedad initialValue como {
+        propiedad type como Boolean.
+        propiedad default como una función donde retorno false.
       }.
       propiedad onChange como {
         propiedad type como Function.
         propiedad default como una función.
       }.
-      propiedad placeholder como {
-        propiedad type como String.
-        propiedad default como una función donde retorno "".
+      propiedad options como {
+        propiedad type como Array.
+        propiedad required como true.
       }.
     }.
     método data donde {

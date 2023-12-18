@@ -1,18 +1,32 @@
 
-xcomponents_components.xformfield = Castelog.metodos.un_componente_vue2("xformfield",
-  "<div class=\"Component xformfield\">"
+xcomponents_components.xformcheckbox = Castelog.metodos.un_componente_vue2("xformcheckbox",
+  "<div class=\"Component xformcheckbox\">"
  + "    <div class=\"form_group\">"
  + "      <div class=\"form_group_label\">"
  + "        <slot></slot>"
  + "      </div>"
  + "      <div>"
- + "        <input class=\"text_input\" type=\"text\" v-model=\"value\" :placeholder=\"placeholder\" />"
+ + "        <input class=\"checkbox_input\" type=\"checkbox\" v-model=\"value\" :id=\"customId\" />"
+ + "        <label :for=\"customId\">"
+ + "          <span v-if=\"value\">{{ messageOnSelected }}</span>"
+ + "          <span v-else=\"\">{{ messageOnUnselected }}</span>"
+ + "        </label>"
  + "      </div>"
  + "    </div>"
  + "  </div>",
-  function(component) {return { props:{ initialValue:{ type:String,
+  function(component) {return { props:{ customId:{ type:String,
 default:function() {try {
-return "";
+return Castelog.metodos.un_texto_aleatorio(10, undefined);
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+initialValue:{ type:Boolean,
+default:function() {try {
+return false;
 } catch(error) {
 console.log(error);
 throw error;
@@ -24,9 +38,19 @@ onChange:{ type:Function,
 default:function() {
 }
 },
-placeholder:{ type:String,
+messageOnSelected:{ type:String,
 default:function() {try {
-return "";
+return "Yes";
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+messageOnUnselected:{ type:String,
+default:function() {try {
+return "No";
 } catch(error) {
 console.log(error);
 throw error;

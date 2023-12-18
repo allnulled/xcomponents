@@ -7,6 +7,10 @@
     font-family: 9pt Segoe UI,sans-serif;
 }
 
+.xcollapser {
+    margin-left: 12px;
+}
+.xcollapsible {}
 .xdialogport {}
 .xdialogport > div {
     position: fixed;
@@ -40,13 +44,45 @@
     overflow: scroll;
 }
 
-
+.xform .form_group {
+    
+}
+.xform .form_group_label {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.xform .form_group_input {
+    background-color: #CCC;
+    box-shadow: 0 0 2px black;
+}
+.xformcheckbox .form_group {
+    padding: 8px;
+    padding-top: 12px;
+}
+.xformcheckbox .checkbox_input {
+    display: none;
+}
 .xformfield .form_group {
     padding: 8px;
     padding-top: 12px;
 }
 .xformfield .text_input {
     width: 100%;
+}
+.xformselect .form_group {
+    padding: 8px;
+    padding-top: 12px;
+}
+.xformselect .select_input {
+    width: 100%;
+}
+.xformtextarea .form_group {
+    padding: 8px;
+    padding-top: 12px;
+}
+.xformtextarea .textarea_input {
+    width: 100%;
+    resize: vertical;
 }
 .xjumbotron {
     min-height: 80px;
@@ -145,6 +181,21 @@
     background-color: #444;
     color: white;
 }
+.xtable {
+    width: 100%;
+    border-collapse: collapse;
+}
+.xtable > .xtablehead > .xtablerow > .xtableheader {
+    background-color: #111;
+    color: white;
+}
+
+.xtable > .xtablebody > .xtablerow > .xtablecell {
+    background-color: #EEE;
+    color: black;
+}
+
+
 
 
 
@@ -157,6 +208,7 @@
     font-size: 12px;
     font-family: 9pt Segoe UI,sans-serif;
 }
+
 
 
 

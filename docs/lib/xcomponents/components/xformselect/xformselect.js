@@ -1,18 +1,30 @@
 
-xcomponents_components.xformfield = Castelog.metodos.un_componente_vue2("xformfield",
-  "<div class=\"Component xformfield\">"
+xcomponents_components.xformselect = Castelog.metodos.un_componente_vue2("xformselect",
+  "<div class=\"Component xformselect\">"
  + "    <div class=\"form_group\">"
  + "      <div class=\"form_group_label\">"
  + "        <slot></slot>"
  + "      </div>"
- + "      <div>"
- + "        <input class=\"text_input\" type=\"text\" v-model=\"value\" :placeholder=\"placeholder\" />"
- + "      </div>"
+ + "      <select class=\"select_input\" v-model=\"value\">"
+ + "        <option v-for=\"option, option_index in options\" v-bind:key=\"'xformselect-' + customId + '-option-' + option_index\" :value=\"option\">"
+ + "          {{ option }}"
+ + "        </option>"
+ + "      </select>"
  + "    </div>"
  + "  </div>",
-  function(component) {return { props:{ initialValue:{ type:String,
+  function(component) {return { props:{ customId:{ type:String,
 default:function() {try {
-return "";
+return Castelog.metodos.un_texto_aleatorio(10, undefined);
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+}
+},
+initialValue:{ type:Boolean,
+default:function() {try {
+return false;
 } catch(error) {
 console.log(error);
 throw error;
@@ -24,15 +36,8 @@ onChange:{ type:Function,
 default:function() {
 }
 },
-placeholder:{ type:String,
-default:function() {try {
-return "";
-} catch(error) {
-console.log(error);
-throw error;
-}
-
-}
+options:{ type:Array,
+required:true
 }
 },
 data() {try {

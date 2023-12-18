@@ -10,6 +10,7 @@
         "doc": "docs"
     },
     "scripts": {
+        "dev": "npx nodemon -e 'js,css' -w 'docs/lib/xcomponents/components' -x 'npm run build'",
         "build": "npm run build-api && npm run build-ui && npm run build-css",
         "build-css": "node dev/build-css.js",
         "build-api": "npx browserify docs/lib/xcomponents/components/api.js --outfile docs/lib/xcomponents/xcomponents.js",
