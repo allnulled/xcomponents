@@ -180,6 +180,13 @@
 .xlayout {
     padding: 8px;
 }
+.xlayouthorizontal {
+    display: table;
+    width: 100%;
+}
+.xlayouthorizontalitem {
+    display: table-cell;
+}
 .xlayoutnopaddingbottom {
     padding: 8px;
     padding-bottom: 0px;
@@ -192,6 +199,10 @@
     padding: 8px;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+.xlayoutverticalitem {
+    
 }
 .Component.xlink {
     color: rgb(101, 101, 255);

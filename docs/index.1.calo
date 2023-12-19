@@ -98,6 +98,28 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       <xlayoutnopaddingtop>Layout no padding top</xlayoutnopaddingtop>
     </div>
     <div>
+      <h5>xlayoutnopaddingvertical</h5>
+      <xlayoutnopaddingvertical>Layout no padding vertical</xlayoutnopaddingvertical>
+    </div>
+    <div>
+      <h5>xlayouthorizontal</h5>
+      <xlayouthorizontal>
+        <xlayouthorizontalitem>Item</xlayouthorizontalitem>
+        <xlayouthorizontalitem>Item</xlayouthorizontalitem>
+        <xlayouthorizontalitem>Item</xlayouthorizontalitem>
+        <xlayouthorizontalitem>Item</xlayouthorizontalitem>
+      </xlayouthorizontal>
+    </div>
+    <div>
+      <h5>xlayoutvertical</h5>
+      <xlayoutvertical>
+        <xlayoutverticalitem>Item</xlayoutverticalitem>
+        <xlayoutverticalitem>Item</xlayoutverticalitem>
+        <xlayoutverticalitem>Item</xlayoutverticalitem>
+        <xlayoutverticalitem>Item</xlayoutverticalitem>
+      </xlayoutvertical>
+    </div>
+    <div>
       <h5>xlink</h5>
       <xlink href="#">Link</xlink>
     </div>
