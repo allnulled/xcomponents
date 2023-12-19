@@ -236,6 +236,12 @@
     color: rgb(151, 151, 255);
 }
 
+.xlist {
+    
+}
+.xlistitem {
+    
+}
 .xonscreendependant > * {
     display: none;
 }
@@ -341,6 +347,8 @@
     background-color: #444;
     color: white;
 }
+
+
 .xtable {
     width: 100%;
     border-collapse: collapse;
