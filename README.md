@@ -1,9 +1,10 @@
 # xcomponents
 
+A user-interface web kit of +60 components for Vue.js. This library is based on [win7.css](#), so it looks a lot like Windows 7.
 
-**xcomponents** 
+But I'm running Linux anyway.
 
-![Shield](https://img.shields.io/badge/Set_of_components-+20-green) 
+![Shield](https://img.shields.io/badge/Kit_of_components-+60-green) ![Shield](https://img.shields.io/badge/Binary_for_fast_setup-xcomponents-green) ![Shield](https://img.shields.io/badge/Based_on-Vue.js_v2-green) ![Shield](https://img.shields.io/badge/Based_on-win7.css-green) 
 
 
 # Index
