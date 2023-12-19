@@ -1,6 +1,8 @@
 window.xcomponents_components = {};
 window.xcomponents_api = {};
 
+const xbiglist = require("./xbiglist/xbiglist.js");
+const xbiglistitem = require("./xbiglistitem/xbiglistitem.js");
 const xbreadcrumb = require("./xbreadcrumb/xbreadcrumb.js");
 const xbutton = require("./xbutton/xbutton.js");
 const xcollapsible = require("./xcollapsible/xcollapsible.js");
@@ -39,8 +41,11 @@ const xonscreenxs = require("./xonscreenxs/xonscreenxs.js");
 const xpage = require("./xpage/xpage.js");
 const xpanel = require("./xpanel/xpanel.js");
 const xparagraph = require("./xparagraph/xparagraph.js");
+const xpill = require("./xpill/xpill.js");
 const xprogressbar = require("./xprogressbar/xprogressbar.js");
+const xseparator = require("./xseparator/xseparator.js");
 const xsubtitle = require("./xsubtitle/xsubtitle.js");
+const xtableviewer = require("./xtableviewer/xtableviewer.js");
 const xtable = require("./xtable/xtable.js");
 const xtablecell = require("./xtablecell/xtablecell.js");
 const xtablerow = require("./xtablerow/xtablerow.js");

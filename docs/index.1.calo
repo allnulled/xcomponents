@@ -11,6 +11,9 @@ Ejecutable como documento HTML5
     <script src="lib/calo/calo.js"></script>
     <script src="lib/xcomponents/xcomponents.js"></script>
     <style>
+      * {
+        font-family: Arial;
+      }
       h5 {
         padding: 12px;
         margin: 0;
@@ -195,6 +198,25 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         <xonscreenlg>xonscreenlg</xonscreenlg>
         <xonscreenxl>xonscreenxl</xonscreenxl>
       </xonscreendependant>
+    </div>
+    <div>
+      <h5>xpill</h5>
+      <xpill>xpill 1</xpill>
+      <xpill>xpill 2</xpill>
+      <xpill>xpill 3</xpill>
+      <xpill>xpill 4</xpill>
+      <xpill>xpill 5</xpill>
+      <xpill>xpill 6</xpill>
+    </div>
+    <div>
+      <h5>xbiglist</h5>
+      <xbiglist>
+        <xbiglistitem>Item in list</xbiglistitem>
+        <xbiglistitem>Item in list</xbiglistitem>
+        <xbiglistitem>Item in list</xbiglistitem>
+        <xbiglistitem>Item in list</xbiglistitem>
+        <xbiglistitem>Item in list</xbiglistitem>
+      </xbiglist>
     </div>
     <div style="min-height: 500px;"></div>
   </div>

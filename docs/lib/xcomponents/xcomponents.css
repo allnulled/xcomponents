@@ -27,6 +27,27 @@
     border-radius: 2pt;
     box-shadow: 0 0 4px black;
 }
+.xbiglist {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+}
+.xbiglistitem {
+    padding: 8px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    cursor: pointer;
+}
+.xbiglistitem:hover {
+    background-color: #DDD;
+}
+.xbiglist > .xbiglistitem:first-child {
+    border-top: 1px solid #333;
+}
 .Component.xbreadcrumb {
     padding: 8px;
     margin: 0px;
@@ -276,6 +297,19 @@
 }
 
 
+.xpill {
+    display: inline-block;
+    width: auto;
+    background-color: #444;
+    color: white;
+    border-radius: 5pt;
+    text-align: center;
+    padding: 4px;
+    margin: 1px;
+    font-size: 9px;
+    cursor: pointer;
+}
+
 
 .xstatic {}
 .xstatic > div {
@@ -324,6 +358,12 @@
 
 
 
+.xtableviewer {
+    min-height: 100px;
+    max-height: 500px;
+    width: 100%;
+    overflow: scroll;
+}
 
 .Component.xtitle .content {
     padding: 8px;
