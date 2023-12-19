@@ -1,6 +1,6 @@
 
-xcomponents_components.xlayouthorizontalitem = Castelog.metodos.un_componente_vue2("xlayouthorizontalitem",
-  "<div class=\"Component xlayouthorizontalitem\">"
+xcomponents_components.xonscreenxl = Castelog.metodos.un_componente_vue2("xonscreenxl",
+  "<div class=\"Component xonscreenxl\">"
  + "    <slot></slot>"
  + "  </div>",
   function(component) {return { props:{ 

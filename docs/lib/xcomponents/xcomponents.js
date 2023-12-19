@@ -31,6 +31,12 @@ const xlayoutverticalitem = require("./xlayoutverticalitem/xlayoutverticalitem.j
 const xlayouthorizontal = require("./xlayouthorizontal/xlayouthorizontal.js");
 const xlayouthorizontalitem = require("./xlayouthorizontalitem/xlayouthorizontalitem.js");
 const xlink = require("./xlink/xlink.js");
+const xonscreendependant = require("./xonscreendependant/xonscreendependant.js");
+const xonscreenlg = require("./xonscreenlg/xonscreenlg.js");
+const xonscreenmd = require("./xonscreenmd/xonscreenmd.js");
+const xonscreensm = require("./xonscreensm/xonscreensm.js");
+const xonscreenxl = require("./xonscreenxl/xonscreenxl.js");
+const xonscreenxs = require("./xonscreenxs/xonscreenxs.js");
 const xpage = require("./xpage/xpage.js");
 const xpanel = require("./xpanel/xpanel.js");
 const xparagraph = require("./xparagraph/xparagraph.js");
@@ -60,7 +66,7 @@ Object.assign(window.xcomponents_api, {
 window.xcomponents_api.default = window.xcomponents_api;
 
 module.exports = window.xcomponents_api;
-},{"./vuejs-calendario/vuejs-calendario.js":2,"./xbreadcrumb/xbreadcrumb.js":3,"./xbutton/xbutton.js":4,"./xcollapser/xcollapser.js":5,"./xcollapsible/xcollapsible.js":6,"./xdialogport/xdialogcurrent.js":7,"./xdialogport/xdialogport.js":8,"./xform/xform.js":9,"./xformcheckbox/xformcheckbox.js":10,"./xformcheckboxes/xformcheckboxes.js":11,"./xformcombobox/xformcombobox.js":12,"./xformdate/xformdate.js":13,"./xformdatetime/xformdatetime.js":14,"./xformfield/xformfield.js":15,"./xformnumber/xformnumber.js":16,"./xformrange/xformrange.js":17,"./xformselect/xformselect.js":18,"./xformtextarea/xformtextarea.js":19,"./xformtime/xformtime.js":20,"./xjumbotron/xjumbotron.js":21,"./xlabel/xlabel.js":22,"./xlayout/xlayout.js":23,"./xlayouthorizontal/xlayouthorizontal.js":24,"./xlayouthorizontalitem/xlayouthorizontalitem.js":25,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":26,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":27,"./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js":28,"./xlayoutvertical/xlayoutvertical.js":29,"./xlayoutverticalitem/xlayoutverticalitem.js":30,"./xlink/xlink.js":31,"./xpage/xpage.js":32,"./xpanel/xpanel.js":33,"./xparagraph/xparagraph.js":34,"./xprogressbar/xprogressbar.js":35,"./xstatic/xstatic.js":36,"./xsubtitle/xsubtitle.js":37,"./xtable/xtable.js":38,"./xtablebody/xtablebody.js":39,"./xtablecell/xtablecell.js":40,"./xtablehead/xtablehead.js":41,"./xtableheader/xtableheader.js":42,"./xtablerow/xtablerow.js":43,"./xtester/xtester.js":44,"./xtitle/xtitle.js":45,"./xtooltip/xtooltip.js":46,"./xwindow/xwindow.js":47,"./xwindowbody/xwindowbody.js":48,"./xwindowfooter/xwindowfooter.js":49,"./xwindowfooteritem/xwindowfooteritem.js":50,"./xwindowtitle/xwindowtitle.js":51}],2:[function(require,module,exports){
+},{"./vuejs-calendario/vuejs-calendario.js":2,"./xbreadcrumb/xbreadcrumb.js":3,"./xbutton/xbutton.js":4,"./xcollapser/xcollapser.js":5,"./xcollapsible/xcollapsible.js":6,"./xdialogport/xdialogcurrent.js":7,"./xdialogport/xdialogport.js":8,"./xform/xform.js":9,"./xformcheckbox/xformcheckbox.js":10,"./xformcheckboxes/xformcheckboxes.js":11,"./xformcombobox/xformcombobox.js":12,"./xformdate/xformdate.js":13,"./xformdatetime/xformdatetime.js":14,"./xformfield/xformfield.js":15,"./xformnumber/xformnumber.js":16,"./xformrange/xformrange.js":17,"./xformselect/xformselect.js":18,"./xformtextarea/xformtextarea.js":19,"./xformtime/xformtime.js":20,"./xjumbotron/xjumbotron.js":21,"./xlabel/xlabel.js":22,"./xlayout/xlayout.js":23,"./xlayouthorizontal/xlayouthorizontal.js":24,"./xlayouthorizontalitem/xlayouthorizontalitem.js":25,"./xlayoutnopaddingbottom/xlayoutnopaddingbottom.js":26,"./xlayoutnopaddingtop/xlayoutnopaddingtop.js":27,"./xlayoutnopaddingvertical/xlayoutnopaddingvertical.js":28,"./xlayoutvertical/xlayoutvertical.js":29,"./xlayoutverticalitem/xlayoutverticalitem.js":30,"./xlink/xlink.js":31,"./xonscreendependant/xonscreendependant.js":32,"./xonscreenlg/xonscreenlg.js":33,"./xonscreenmd/xonscreenmd.js":34,"./xonscreensm/xonscreensm.js":35,"./xonscreenxl/xonscreenxl.js":36,"./xonscreenxs/xonscreenxs.js":37,"./xpage/xpage.js":38,"./xpanel/xpanel.js":39,"./xparagraph/xparagraph.js":40,"./xprogressbar/xprogressbar.js":41,"./xstatic/xstatic.js":42,"./xsubtitle/xsubtitle.js":43,"./xtable/xtable.js":44,"./xtablebody/xtablebody.js":45,"./xtablecell/xtablecell.js":46,"./xtablehead/xtablehead.js":47,"./xtableheader/xtableheader.js":48,"./xtablerow/xtablerow.js":49,"./xtester/xtester.js":50,"./xtitle/xtitle.js":51,"./xtooltip/xtooltip.js":52,"./xwindow/xwindow.js":53,"./xwindowbody/xwindowbody.js":54,"./xwindowfooter/xwindowfooter.js":55,"./xwindowfooteritem/xwindowfooteritem.js":56,"./xwindowtitle/xwindowtitle.js":57}],2:[function(require,module,exports){
 
 window.VuejsCalendario = Castelog.metodos.un_componente_vue2("VuejsCalendario",
   "<div class=\"Component VuejsCalendario\">"
@@ -2828,8 +2834,51 @@ deactivated() {
 };},
   null);
 },{}],25:[function(require,module,exports){
-arguments[4][24][0].apply(exports,arguments)
-},{"dup":24}],26:[function(require,module,exports){
+
+xcomponents_components.xlayouthorizontalitem = Castelog.metodos.un_componente_vue2("xlayouthorizontalitem",
+  "<div class=\"Component xlayouthorizontalitem\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],26:[function(require,module,exports){
 
 xcomponents_components.xlayoutnopaddingbottom = Castelog.metodos.un_componente_vue2("xlayoutnopaddingbottom",
   "<div class=\"Component xlayoutnopaddingbottom\">"
@@ -3103,6 +3152,276 @@ deactivated() {
   null);
 },{}],32:[function(require,module,exports){
 
+xcomponents_components.xonscreendependant = Castelog.metodos.un_componente_vue2("xonscreendependant",
+  "<div class=\"Component xonscreendependant\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],33:[function(require,module,exports){
+
+xcomponents_components.xonscreenlg = Castelog.metodos.un_componente_vue2("xonscreenlg",
+  "<div class=\"Component xonscreenlg\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],34:[function(require,module,exports){
+
+xcomponents_components.xonscreenmd = Castelog.metodos.un_componente_vue2("xonscreenmd",
+  "<div class=\"Component xonscreenmd\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],35:[function(require,module,exports){
+
+xcomponents_components.xonscreensm = Castelog.metodos.un_componente_vue2("xonscreensm",
+  "<div class=\"Component xonscreensm\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],36:[function(require,module,exports){
+
+xcomponents_components.xonscreenxl = Castelog.metodos.un_componente_vue2("xonscreenxl",
+  "<div class=\"Component xonscreenxl\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],37:[function(require,module,exports){
+
+xcomponents_components.xonscreenxs = Castelog.metodos.un_componente_vue2("xonscreenxs",
+  "<div class=\"Component xonscreenxs\">"
+ + "    <slot></slot>"
+ + "  </div>",
+  function(component) {return { props:{ 
+},
+data() {try {
+return { 
+};
+} catch(error) {
+console.log(error);
+throw error;
+}
+
+},
+methods:{ 
+},
+watch:{ 
+},
+computed:{ 
+},
+beforeCreate() {
+},
+created() {
+},
+beforeMount() {
+},
+mounted() {
+},
+beforeUpdate() {
+},
+updated() {
+},
+beforeUnmount() {
+},
+unmounted() {
+},
+activated() {
+},
+deactivated() {
+}
+};},
+  null);
+},{}],38:[function(require,module,exports){
+
 xcomponents_components.xpage = Castelog.metodos.un_componente_vue2("xpage",
   "<div class=\"Component xpage\">"
  + "    <div class=\"title\" v-if=\"title\">{{ title }}</div>"
@@ -3153,7 +3472,7 @@ deactivated() {
 }
 };},
   null);
-},{}],33:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 xcomponents_components.xpanel = Castelog.metodos.un_componente_vue2("xpanel",
   "<div class=\"Component xpanel\">"
@@ -3198,7 +3517,7 @@ deactivated() {
 }
 };},
   null);
-},{}],34:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 
 xcomponents_components.xparagraph = Castelog.metodos.un_componente_vue2("xparagraph",
   "<p class=\"Component xparagraph\">"
@@ -3243,7 +3562,7 @@ deactivated() {
 }
 };},
   null);
-},{}],35:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 
 xcomponents_components.xprogressbar = Castelog.metodos.un_componente_vue2("xprogressbar",
   "<div class=\"Component xprogressbar\">"
@@ -3288,7 +3607,7 @@ deactivated() {
 }
 };},
   null);
-},{}],36:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 
 xcomponents_components.xstatic = Castelog.metodos.un_componente_vue2("xstatic",
   "<div class=\"Component xstatic\">"
@@ -3345,7 +3664,7 @@ deactivated() {
 }
 };},
   null);
-},{}],37:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 
 xcomponents_components.xsubtitle = Castelog.metodos.un_componente_vue2("xsubtitle",
   "<div class=\"Component xsubtitle\">"
@@ -3390,7 +3709,7 @@ deactivated() {
 }
 };},
   null);
-},{}],38:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 
 xcomponents_components.xtable = Castelog.metodos.un_componente_vue2("xtable",
   "<table class=\"Component xtable\">"
@@ -3435,7 +3754,7 @@ deactivated() {
 }
 };},
   null);
-},{}],39:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 
 xcomponents_components.xtablebody = Castelog.metodos.un_componente_vue2("xtablebody",
   "<tbody class=\"Component xtablebody\">"
@@ -3480,7 +3799,7 @@ deactivated() {
 }
 };},
   null);
-},{}],40:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 
 xcomponents_components.xtablecell = Castelog.metodos.un_componente_vue2("xtablecell",
   "<td class=\"Component xtablecell\">"
@@ -3525,7 +3844,7 @@ deactivated() {
 }
 };},
   null);
-},{}],41:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 
 xcomponents_components.xtablehead = Castelog.metodos.un_componente_vue2("xtablehead",
   "<thead class=\"Component xtablehead\">"
@@ -3570,7 +3889,7 @@ deactivated() {
 }
 };},
   null);
-},{}],42:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 
 xcomponents_components.xtableheader = Castelog.metodos.un_componente_vue2("xtableheader",
   "<th class=\"Component xtableheader\">"
@@ -3615,7 +3934,7 @@ deactivated() {
 }
 };},
   null);
-},{}],43:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 
 xcomponents_components.xtablerow = Castelog.metodos.un_componente_vue2("xtablerow",
   "<tr class=\"Component xtablerow\">"
@@ -3660,7 +3979,7 @@ deactivated() {
 }
 };},
   null);
-},{}],44:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 
 xcomponents_components.xtester = Castelog.metodos.un_componente_vue2("xtester",
   "<div class=\"Component xtester\">"
@@ -3714,7 +4033,7 @@ deactivated() {
 }
 };},
   null);
-},{}],45:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 
 xcomponents_components.xtitle = Castelog.metodos.un_componente_vue2("xtitle",
   "<div class=\"Component xtitle\">"
@@ -3761,7 +4080,7 @@ deactivated() {
 }
 };},
   null);
-},{}],46:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 
 xcomponents_components.xtooltip = Castelog.metodos.un_componente_vue2("xtooltip",
   "<div class=\"Component xtooltip\" role=\"tooltip\">"
@@ -3806,7 +4125,7 @@ deactivated() {
 }
 };},
   null);
-},{}],47:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 
 xcomponents_components.xwindow = Castelog.metodos.un_componente_vue2("xwindow",
   "<div class=\"Component xwindow window\">"
@@ -3851,7 +4170,7 @@ deactivated() {
 }
 };},
   null);
-},{}],48:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 
 xcomponents_components.xwindowbody = Castelog.metodos.un_componente_vue2("xwindowbody",
   "<div class=\"Component xwindowbody window-body\">"
@@ -3896,7 +4215,7 @@ deactivated() {
 }
 };},
   null);
-},{}],49:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 
 xcomponents_components.xwindowfooter = Castelog.metodos.un_componente_vue2("xwindowfooter",
   "<div class=\"Component xwindowfooter status-bar\">"
@@ -3941,7 +4260,7 @@ deactivated() {
 }
 };},
   null);
-},{}],50:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 
 xcomponents_components.xwindowfooteritem = Castelog.metodos.un_componente_vue2("xwindowfooteritem",
   "<div class=\"Component xwindowfooteritem status-bar-field\">"
@@ -3986,7 +4305,7 @@ deactivated() {
 }
 };},
   null);
-},{}],51:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 
 xcomponents_components.xwindowtitle = Castelog.metodos.un_componente_vue2("xwindowtitle",
   "<div class=\"Component xwindowtitle title-bar\">"

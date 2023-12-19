@@ -186,6 +186,17 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
       <h5>xprogressbar</h5>
       <xprogressbar />
     </div>
+    <div>
+      <h5>xonscreendependant</h5>
+      <xonscreendependant>
+        <xonscreenxs>xonscreenxs</xonscreenxs>
+        <xonscreensm>xonscreensm</xonscreensm>
+        <xonscreenmd>xonscreenmd</xonscreenmd>
+        <xonscreenlg>xonscreenlg</xonscreenlg>
+        <xonscreenxl>xonscreenxl</xonscreenxl>
+      </xonscreendependant>
+    </div>
+    <div style="min-height: 500px;"></div>
   </div>
 } con lógica {
   retorno {

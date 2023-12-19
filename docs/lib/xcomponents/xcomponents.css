@@ -215,6 +215,39 @@
     color: rgb(151, 151, 255);
 }
 
+.xonscreendependant > * {
+    display: none;
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .xonscreendependant > .xonscreenlg {
+        display: block !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .xonscreendependant > .xonscreenmd {
+        display: block !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .xonscreendependant > .xonscreensm {
+        display: block !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .xonscreendependant > .xonscreenxl {
+        display: block !important;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+    .xonscreendependant > .xonscreenxs {
+        display: block !important;
+    }
+}
+
 .Component.xpage {
     display: block;
     text-align: center;
