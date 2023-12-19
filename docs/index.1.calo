@@ -218,6 +218,14 @@ asigno window.PaginaDeInicio como un componente vue2 con nombre "PaginaDeInicio"
         <xbiglistitem>Item in list</xbiglistitem>
       </xbiglist>
     </div>
+    <div>
+      <h5>xspinner</h5>
+      <xspinner />
+    </div>
+    <div>
+      <h5>xseparator</h5>
+      <xseparator />
+    </div>
     <div style="min-height: 500px;"></div>
   </div>
 } con lógica {

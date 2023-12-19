@@ -44,6 +44,7 @@ const xparagraph = require("./xparagraph/xparagraph.js");
 const xpill = require("./xpill/xpill.js");
 const xprogressbar = require("./xprogressbar/xprogressbar.js");
 const xseparator = require("./xseparator/xseparator.js");
+const xspinner = require("./xspinner/xspinner.js");
 const xsubtitle = require("./xsubtitle/xsubtitle.js");
 const xtableviewer = require("./xtableviewer/xtableviewer.js");
 const xtable = require("./xtable/xtable.js");
