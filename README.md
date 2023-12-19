@@ -1,6 +1,6 @@
 # xcomponents
 
-A user-interface web kit of +60 components for Vue.js. This library is based on [win7.css](#), so it looks a lot like Windows 7.
+A user-interface web kit of +60 components for Vue.js (v2). This library is based on [win7.css](#), so it looks a lot like Windows 7.
 
 But I'm running Linux anyway.
 
