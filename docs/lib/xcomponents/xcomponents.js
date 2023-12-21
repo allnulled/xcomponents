@@ -2628,7 +2628,7 @@ xcomponents_components.xformtime = Castelog.metodos.un_componente_vue2("xformtim
  + "              <xtablecell>"
  + "                <button style=\"min-width: auto;\" v-on:click=\"() => esta_mostrando_calendario = !esta_mostrando_calendario\">🗓</button>"
  + "              </xtablecell>"
- + "              <xtablecell style=\"white-space: nowrap;\" style=\"width: 100%;\">"
+ + "              <xtablecell style=\"white-space: nowrap; width: 100%;\">"
  + "                <input type=\"text\" v-model=\"value\" style=\"text-align: left; width: 100%;\" disabled=\"true\" />"
  + "              </xtablecell>"
  + "            </xtablerow>"
