@@ -4,19 +4,19 @@ asigno xcomponents_components.xformdatetime como un componente vue2 con nombre "
       <div class="form_group_label">
         <slot></slot>
       </div>
-      <div style="position: relative; max-width: 220px; background-color: #222; color: white;">
+      <div style="position: relative; background-color: #222; color: white;">
         <xtable style="width:100%;">
           <xtablebody>
             <xtablerow>
               <xtablecell>
                 <button style="min-width: auto;" v-on:click="() => esta_mostrando_calendario = !esta_mostrando_calendario">🗓</button>
               </xtablecell>
-              <xtablecell style="white-space: nowrap;">
-                <input type="text" v-model="value" style="text-align:right; width:100%;" disabled="true" />
+              <xtablecell style="white-space: nowrap; width:100%;">
+                <input type="text" v-model="value" style="text-align: left; width: 100%;" disabled="true" />
               </xtablecell>
             </xtablerow>
             <xtablerow v-if="esta_mostrando_calendario">
-              <xtablecell colspan="100">
+              <xtablecell colspan="100" style="max-width: 220px;">
                 <VuejsCalendario mode="datetime" :initial-value="value" :on-change="v => value = v"></VuejsCalendario>
               </xtablecell>
             </xtablerow>
